@@ -8,7 +8,7 @@ import { SiteData } from './types';
 export const DATA: SiteData = {
   config: {
     showPublicationsPage: true, // Set to false to hide "Publications" link in navbar
-    showTeachingPage: true,     // Set to false to hide "Teaching" link in navbar
+    showTeachingPage: false,     // Set to false to hide "Teaching" link in navbar
     showBlogPage: false,        // Set to true to show "Blog" link in navbar
   },
   profile: {
