@@ -12,13 +12,13 @@ export const DATA: SiteData = {
     showBlogPage: false,        // Set to true to show "Blog" link in navbar
   },
   profile: {
-    name: "Dr. Jane Doe",
-    publicationName: "Jane Doe", // This name is used to boldface the author in the publication list
-    title: "Assistant Professor of Computer Science",
-    affiliation: "University of Technology & Science",
-    email: "jane.doe@univ.edu",
-    location: "San Francisco, CA",
-    image: "https://picsum.photos/400/400", // Replace with your photo
+    name: "Xiuyuan Yu",
+    publicationName: "Xiuyuan Yu", // This name is used to boldface the author in the publication list
+    title: "Undergraduate Student",
+    affiliation: "The Chinese University of Hong Kong",
+    email: "1155211255@link.cuhk.edu.hk",
+    location: "Hong Kong, China",
+    image: "/assets/cropped_circle_image.png", // Replace with your photo
     cv: "/assets/cv.pdf", // Place your cv.pdf in the assets folder
     shortBio: "I am interested in machine learning, computer vision, and AI safety. My research focuses on making deep learning models more robust and interpretable.",
     longBio: `
@@ -29,79 +29,34 @@ export const DATA: SiteData = {
       generative models, and their applications in robotics.
     `,
     socials: [
-      { label: "Google Scholar", url: "#", icon: "scholar" },
-      { label: "GitHub", url: "https://github.com", icon: "github" },
-      { label: "ORCID", url: "https://orcid.org", icon: "orcid" },
+      { label: "Google Scholar", url: "https://scholar.google.com/citations?user=4H2KSRAAAAAJ&hl=en", icon: "scholar" },
+      { label: "GitHub", url: "https://github.com/xiuyuan18", icon: "github" },
+      { label: "ORCID", url: "https://orcid.org/0009-0003-6903-3310", icon: "orcid" },
     ],
     education: [
-      { degree: "Ph.D. in Computer Science", institution: "Ivy University", year: "2020" },
-      { degree: "B.S. in Mathematics", institution: "State College", year: "2015" }
+      { degree: "B.Eng. in Artificial Intelligence: System & Tech.", institution: "The Chinese University of Hong Kong", year: "2023-Present" }
     ]
   },
   news: [
-    { id: "n1", date: "Sep 2024", content: "Our paper on **Robust Vision** was accepted to **NeurIPS 2024**!" },
-    { id: "n2", date: "Aug 2024", content: "I will be serving as an Area Chair for CVPR 2025." },
-    { id: "n3", date: "June 2024", content: "Received the Best Paper Award at the ICML Workshop on Generative AI." },
-    { id: "n4", date: "Jan 2024", content: "Started my new position as Assistant Professor at UTS." },
+    { id: "n1", date: "Nov 2025", content: "Applying for Graduate School." },
   ],
   publications: [
     {
       id: "p1",
-      title: "Deep Learning for Robust Object Detection in Chaos",
-      authors: ["Jane Doe", "John Smith", "Alice Johnson"],
-      venue: "NeurIPS 2024",
-      year: 2024,
+      title: "4DSloMo: 4D Reconstruction for High Speed Scene with Asynchronous Capture",
+      authors: ["Yutian Chen", "Shi Guo", "Tianshuo Yang", "Lihe Ding", "Xiuyuan Yu", "Jinwei Gu", "Tianfan Xue"],
+      venue: "ACM SIGGRAPH Asia",
+      year: 2025,
       highlight: true,
-      abstract: "We propose a novel architecture that improves object detection performance in highly chaotic environments by 25%.",
-      tags: ["Computer Vision", "Robustness"],
-      teaser: "https://picsum.photos/seed/p1/200/150", // Use a local path like '/assets/teaser1.jpg' or a video '/assets/teaser1.mp4'
+      abstract: "Our method can reconstruct high speed and complex 4D motion with high quality.",
+      tags: ["Computer Vision", "4D Reconstruction"],
+      teaser: "/assets/4DSloMo.mp4", // Use a local path like '/assets/teaser1.jpg' or a video '/assets/teaser1.mp4'
       links: [
-        { label: "PDF", url: "#" },
-        { label: "Code", url: "#" }
+        { label: "PDF", url: "https://arxiv.org/pdf/2507.05163" },
+        { label: "Code", url: "https://github.com/OpenImagingLab/4DSloMo" },
+        { label: "Website", url: "https://openimaginglab.github.io/4DSloMo" }
       ]
     },
-    {
-      id: "p2",
-      title: "Generative Adversarial Networks for Medical Imaging",
-      authors: ["Bob Williams", "Jane Doe"],
-      venue: "ICCV 2023",
-      year: 2023,
-      highlight: true,
-      abstract: "A comprehensive study on the efficacy of GANs for synthetic data generation in MRI scans.",
-      tags: ["Generative AI", "Healthcare"],
-      teaser: "https://picsum.photos/seed/p2/200/150",
-      links: [
-        { label: "PDF", url: "#" },
-        { label: "Project Page", url: "#" }
-      ]
-    },
-    {
-      id: "p3",
-      title: "Self-Supervised Learning on the Edge",
-      authors: ["Jane Doe", "Charlie Brown"],
-      venue: "ECCV 2022",
-      year: 2022,
-      highlight: false,
-      abstract: "Optimizing SSL algorithms for low-power edge devices.",
-      tags: ["Edge Computing", "SSL"],
-      links: [
-        { label: "PDF", url: "#" }
-      ]
-    },
-    {
-      id: "p4",
-      title: "A Survey of Visual Transformers",
-      authors: ["Alice Johnson", "Jane Doe", "Eve Davis"],
-      venue: "IEEE TPAMI",
-      year: 2021,
-      highlight: false,
-      abstract: "A comprehensive survey outlining the history and future of ViTs.",
-      tags: ["Transformers", "Survey"],
-      teaser: "https://picsum.photos/seed/p4/200/150",
-      links: [
-        { label: "PDF", url: "#" }
-      ]
-    }
   ],
   teaching: [
     {
@@ -121,9 +76,10 @@ export const DATA: SiteData = {
     }
   ],
   awards: [
-    { id: "a1", title: "Best Paper Award", awarder: "ICML Workshop on Generative AI", date: "2024" },
-    { id: "a2", title: "NSF Graduate Research Fellowship", awarder: "National Science Foundation", date: "2018-2021" },
-    { id: "a3", title: "Outstanding Reviewer", awarder: "CVPR", date: "2023" }
+    { id: "a1", title: "Silver Award for Outstanding Academic Performance", awarder: "Department", date: "2025" },
+    { id: "a2", title: "Dean's List", awarder: "Faculty of Engineering", date: "2024, 2025" },
+    { id: "a3", title: "ELITE Stream Scholarship", awarder: "Faculty of Engineering", date: "2024, 2025" },
+    { id: "a4", title: "Honors at Entrance", awarder: "University", date: "2023" },
   ],
   blog: [
     {
