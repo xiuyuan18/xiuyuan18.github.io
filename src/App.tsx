@@ -3,7 +3,6 @@ import React from 'react';
 import { HashRouter, Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Footer from './components/Footer';
-import ResearchAssistant from './components/ResearchAssistant';
 import Home from './pages/Home';
 import Publications from './pages/Publications';
 import Teaching from './pages/Teaching';
@@ -23,7 +22,6 @@ const App: React.FC = () => {
           </Routes>
         </main>
         <Footer />
-        <ResearchAssistant />
       </div>
     </HashRouter>
   );
