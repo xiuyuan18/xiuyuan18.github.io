@@ -13,6 +13,7 @@ export const DATA: SiteData = {
   },
   profile: {
     name: "Dr. Jane Doe",
+    publicationName: "Jane Doe", // This name is used to boldface the author in the publication list
     title: "Assistant Professor of Computer Science",
     affiliation: "University of Technology & Science",
     email: "jane.doe@univ.edu",
@@ -125,17 +126,17 @@ export const DATA: SiteData = {
     { id: "a3", title: "Outstanding Reviewer", awarder: "CVPR", date: "2023" }
   ],
   blog: [
-    { 
-      id: "b1", 
-      title: "Thoughts on Large Language Models", 
-      date: "Oct 2024", 
+    {
+      id: "b1",
+      title: "Thoughts on Large Language Models",
+      date: "Oct 2024",
       summary: "Reflecting on the recent advancements in LLMs and their impact on academic research.",
       slug: "thoughts-on-llms"
     },
-    { 
-      id: "b2", 
-      title: "How to Write a Rebuttal", 
-      date: "July 2024", 
+    {
+      id: "b2",
+      title: "How to Write a Rebuttal",
+      date: "July 2024",
       summary: "A guide for PhD students on navigating the conference rebuttal process effectively.",
       slug: "how-to-write-rebuttal"
     }

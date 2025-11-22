@@ -27,6 +27,11 @@ const Home: React.FC = () => {
     ),
   };
 
+  // Helper to determine if the author is the profile owner
+  const isAuthorMe = (author: string) => {
+    return author === DATA.profile.name || author === DATA.profile.publicationName;
+  };
+
   return (
     <div className="space-y-16 animate-fadeIn">
       {/* Profile Section */}
@@ -160,7 +165,7 @@ const Home: React.FC = () => {
                 </h3>
                 <div className="text-academic-700">
                   {pub.authors.map((author, idx) => (
-                    <span key={idx} className={author === DATA.profile.name ? "font-bold text-academic-900" : ""}>
+                    <span key={idx} className={isAuthorMe(author) ? "font-bold text-academic-900" : ""}>
                       {author}{idx < pub.authors.length - 1 ? ", " : ""}
                     </span>
                   ))}

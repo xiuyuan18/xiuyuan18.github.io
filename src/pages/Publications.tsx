@@ -1,3 +1,4 @@
+
 import React from 'react';
 import { DATA } from '../constants';
 
@@ -11,6 +12,11 @@ const Publications: React.FC = () => {
   }, {} as Record<number, typeof DATA.publications>);
 
   const years = Object.keys(pubsByYear).map(Number).sort((a, b) => b - a);
+
+  // Helper to determine if the author is the profile owner
+  const isAuthorMe = (author: string) => {
+    return author === DATA.profile.name || author === DATA.profile.publicationName;
+  };
 
   return (
     <div className="space-y-12 animate-fadeIn">
@@ -61,7 +67,7 @@ const Publications: React.FC = () => {
                     </h3>
                     <div className="text-academic-700 text-sm">
                       {pub.authors.map((author, idx) => (
-                        <span key={idx} className={author === DATA.profile.name ? "font-bold text-academic-900 border-b border-academic-300" : ""}>
+                        <span key={idx} className={isAuthorMe(author) ? "font-bold text-academic-900 border-b border-academic-300" : ""}>
                           {author}{idx < pub.authors.length - 1 ? ", " : ""}
                         </span>
                       ))}

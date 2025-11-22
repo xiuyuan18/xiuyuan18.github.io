@@ -1,4 +1,3 @@
-
 export interface Link {
   label: string;
   url: string;
@@ -7,6 +6,7 @@ export interface Link {
 
 export interface Profile {
   name: string;
+  publicationName?: string; // The name used in publication author lists (e.g., "Jane Doe" vs "Dr. Jane Doe")
   title: string;
   affiliation: string;
   email: string;
