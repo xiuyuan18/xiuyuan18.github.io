@@ -36,7 +36,7 @@ const Home: React.FC = () => {
     <div className="space-y-16 animate-fadeIn">
       {/* Profile Section */}
       <section className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
-        <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 relative">
+        <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 relative">
           <img
             src={DATA.profile.image}
             alt={DATA.profile.name}

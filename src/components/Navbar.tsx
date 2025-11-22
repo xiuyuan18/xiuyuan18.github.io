@@ -25,7 +25,7 @@ const Navbar: React.FC = () => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="flex-shrink-0 flex items-center space-x-2">
+            <Link to="/" className="shrink-0 flex items-center space-x-2">
               <span className="font-serif font-bold text-xl tracking-tight text-academic-900">
                 {DATA.profile.name}
               </span>
