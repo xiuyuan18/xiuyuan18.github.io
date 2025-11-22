@@ -1,0 +1,5 @@
+{
+  "name": "ScholarReact - Academic Homepage Template",
+  "description": "A modern, clean, and interactive academic personal website template built with React and Tailwind. Features a built-in Gemini AI research assistant that answers visitor questions based on your publication data.",
+  "requestFramePermissions": []
+}
