@@ -2,7 +2,7 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { DATA } from '../constants';
-import { Mail, MapPin, Link as LinkIcon, ChevronRight, FileText, Award } from 'lucide-react';
+import { Mail, MapPin, Link as LinkIcon, ChevronRight, FileText, Award, GraduationCap } from 'lucide-react';
 
 const Home: React.FC = () => {
   // Simple Icons SVGs
@@ -97,6 +97,25 @@ const Home: React.FC = () => {
 
           <div className="prose prose-academic text-academic-700 leading-relaxed max-w-none pt-4">
              <p>{DATA.profile.longBio}</p>
+          </div>
+
+          {/* Education Section */}
+          <div className="pt-6">
+            <h2 className="text-xl font-serif font-bold text-academic-900 mb-4 flex items-center gap-2">
+              <GraduationCap size={20} className="text-academic-400" />
+              Education
+            </h2>
+            <div className="space-y-3">
+              {DATA.profile.education.map((edu, idx) => (
+                <div key={idx} className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
+                   <div>
+                      <div className="font-bold text-academic-900">{edu.institution}</div>
+                      <div className="text-academic-700">{edu.degree}</div>
+                   </div>
+                   <div className="text-academic-500 font-mono text-sm mt-1 sm:mt-0">{edu.year}</div>
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </section>
