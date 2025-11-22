@@ -20,13 +20,8 @@ export const DATA: SiteData = {
     location: "Hong Kong, China",
     image: "/assets/cropped_circle_image.png", // Replace with your photo
     cv: "/assets/cv.pdf", // Place your cv.pdf in the assets folder
-    shortBio: "I am interested in machine learning, computer vision, and AI safety. My research focuses on making deep learning models more robust and interpretable.",
-    longBio: `
-      I am an Assistant Professor in the Department of Computer Science at the University of Technology & Science. 
-      Previously, I was a Postdoctoral Researcher at the AI Institute. I received my Ph.D. from Ivy University, advised by Prof. Alan Turing.
-      
-      My research lies at the intersection of Computer Vision and Machine Learning. I am particularly interested in self-supervised learning, 
-      generative models, and their applications in robotics.
+    shortBio: "I am interested in machine learning, computer vision. My research focuses on improving the quality of dynamic scene recontruction.",
+    longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). My academic interests lie at the intersection of computer vision and deep learning, with a particular focus on 4D scene reconstruction, dynamic 3D vision, and neural rendering techniques such as NeRF and 3D/4D Gaussian Splatting.
     `,
     socials: [
       { label: "Google Scholar", url: "https://scholar.google.com/citations?user=4H2KSRAAAAAJ&hl=en", icon: "scholar" },
