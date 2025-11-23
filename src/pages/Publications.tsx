@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { DATA } from '../constants';
+import MediaTeaser from '../components/MediaTeaser';
 
 const Publications: React.FC = () => {
   // Group by year
@@ -35,31 +36,12 @@ const Publications: React.FC = () => {
                 <div key={pub.id} className="flex flex-col md:flex-row gap-6 items-start">
                   
                    {/* Teaser Section */}
-                  <div className="w-full md:w-48 shrink-0">
-                    {pub.teaser ? (
-                       pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') ? (
-                        <video 
-                          src={pub.teaser} 
-                          autoPlay 
-                          muted 
-                          loop 
-                          playsInline
-                          className="w-full h-32 object-cover rounded-lg border border-academic-100 shadow-sm"
-                        />
-                      ) : (
-                        <img 
-                          src={pub.teaser} 
-                          alt={`${pub.title} teaser`} 
-                          className="w-full h-32 object-cover rounded-lg border border-academic-100 shadow-sm"
-                        />
-                      )
-                    ) : (
-                      // Fallback for layout alignment if no teaser exists, or remove if preferred
-                      <div className="w-full h-32 bg-academic-50 rounded-lg border border-academic-100 flex items-center justify-center text-academic-300 text-xs">
-                        <span className="inline-block px-2 py-1 bg-white rounded border border-academic-100">{pub.venue}</span>
-                      </div>
-                    )}
-                  </div>
+                  <MediaTeaser
+                    className="w-full md:w-48 shrink-0 h-32"
+                    videoSrc={pub.teaser && (pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') || pub.teaser.endsWith('.ogg') || pub.teaser.endsWith('.ogv')) ? pub.teaser : undefined}
+                    imageSrc={(pub as any).teaserImage || (pub.teaser && !(pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') || pub.teaser.endsWith('.ogg') || pub.teaser.endsWith('.ogv')) ? pub.teaser : undefined)}
+                    alt={`${pub.title} teaser`}
+                  />
 
                   <div className="flex-1 space-y-2">
                     <h3 className="text-lg font-bold text-academic-900">

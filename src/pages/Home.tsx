@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { DATA } from '../constants';
 import { Mail, MapPin, Link as LinkIcon, ChevronRight, FileText, Award, GraduationCap } from 'lucide-react';
+import MediaTeaser from '../components/MediaTeaser';
 
 const Home: React.FC = () => {
   // Simple Icons SVGs
@@ -157,26 +158,12 @@ const Home: React.FC = () => {
             <div key={pub.id} className="flex flex-col md:flex-row gap-6 group">
               
               {/* Teaser Section */}
-              {pub.teaser && (
-                <div className="w-full md:w-48 shrink-0">
-                  {pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') ? (
-                    <video 
-                      src={pub.teaser} 
-                      autoPlay 
-                      muted 
-                      loop 
-                      playsInline
-                      className="w-full h-32 object-cover rounded-lg border border-academic-100 shadow-sm"
-                    />
-                  ) : (
-                    <img 
-                      src={pub.teaser} 
-                      alt={`${pub.title} teaser`} 
-                      className="w-full h-32 object-cover rounded-lg border border-academic-100 shadow-sm"
-                    />
-                  )}
-                </div>
-              )}
+              <MediaTeaser
+                className="w-full md:w-48 shrink-0 h-32"
+                videoSrc={pub.teaser && (pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') || pub.teaser.endsWith('.ogg') || pub.teaser.endsWith('.ogv')) ? pub.teaser : undefined}
+                imageSrc={(pub as any).teaserImage || (pub.teaser && !(pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') || pub.teaser.endsWith('.ogg') || pub.teaser.endsWith('.ogv')) ? pub.teaser : undefined)}
+                alt={`${pub.title} teaser`}
+              />
 
               <div className="flex-1 flex flex-col space-y-2">
                 <h3 className="text-lg font-bold text-academic-900 group-hover:text-academic-accent transition-colors">

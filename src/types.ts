@@ -40,6 +40,7 @@ export interface Publication {
   links?: Link[]; // PDF, Code, Video, etc.
   highlight?: boolean;
   teaser?: string; // Path to image or video
+  teaserImage?: string;
 }
 
 export interface TeachingItem {
