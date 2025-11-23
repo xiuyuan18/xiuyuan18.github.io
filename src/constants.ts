@@ -9,7 +9,7 @@ export const DATA: SiteData = {
   config: {
     showPublicationsPage: true, // Set to false to hide "Publications" link in navbar
     showTeachingPage: false,     // Set to false to hide "Teaching" link in navbar
-    showBlogPage: false,        // Set to true to show "Blog" link in navbar
+    showBlogPage: true,        // Set to true to show "Blog" link in navbar
   },
   profile: {
     name: "Xiuyuan Yu",
@@ -79,17 +79,17 @@ export const DATA: SiteData = {
   blog: [
     {
       id: "b1",
-      title: "Thoughts on Large Language Models",
-      date: "Oct 2024",
-      summary: "Reflecting on the recent advancements in LLMs and their impact on academic research.",
-      slug: "thoughts-on-llms"
+      title: "Note on Logistic Linear Classification",
+      date: "Oct 2025",
+      summary: "A concise summary of logistic linear classification, including its mathematical formulation and usage in different scenarios.",
+      slug: "Logistic Linear Classification"
     },
-    {
-      id: "b2",
-      title: "How to Write a Rebuttal",
-      date: "July 2024",
-      summary: "A guide for PhD students on navigating the conference rebuttal process effectively.",
-      slug: "how-to-write-rebuttal"
-    }
+    // {
+    //   id: "b2",
+    //   title: "How to Write a Rebuttal",
+    //   date: "July 2024",
+    //   summary: "A guide for PhD students on navigating the conference rebuttal process effectively.",
+    //   slug: "how-to-write-rebuttal"
+    // }
   ]
 };

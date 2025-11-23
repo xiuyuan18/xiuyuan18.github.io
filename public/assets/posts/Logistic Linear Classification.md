@@ -1,0 +1,97 @@
+## Why "regression"?
+It is a classification problem, but the name of the algorithm is "regression". So, what are we regress? Why turn the classification problem into a regression problem?
+
+Suppose that our data live in $\mathbb{R}^d$, the goal of linear classification is to find a line (lines) that separate different classes. To achieve this, the common approach of various linear classifiers is assign a score $\boldsymbol{w^Tx}+b$ for all the data point $\boldsymbol{x} \in \mathbb{R^d}$ and use regression to find the weights $\boldsymbol{w}$ and $b$. Then the line $\boldsymbol{w^Tx}+b=0$ is the separation criteria.
+
+As a special case, for binary classification, we want the score to be positive for one class and negative for the other. Now the question is turned into how to perform regression. We only have a two value label instead of the continuous label in the regression problem. What should be our score?
+## What we perform regression on?
+The idea of Linear Logistic Regression is to use "a form of probability" as the score. So what is "a form of probability"? The idea is a little confusing. Let us look at it by parts.
+
+First, why probability? It is a kind of method to make discrete class label continuous. We can't regress on the class label, but we can perform regression on the probability of a data point belonging to a class. For example, given the wage of a worker $x$, determine whether he owns a car or not. The label is discrete. But how about we turn the label into the probability of he owns a car given the wage $x$. That is $\text{Prob}(\text{owns a car}\,|\,x)$. Great! Now the label is continuous. The goal of our model is know to predict this probability.
+
+However, the range of probability, which is $[0, 1]$, doesn't match with the range of $\boldsymbol{w^Tx}+b$. This is where the Logistic function comes out. We have
+$$\sigma(x)=\frac1{1+e^{-x}}.$$
+This function map $\mathbb{R}$ to $(0, 1)$. Thus our model becomes $$\hat{p}=\sigma(\boldsymbol{w^Tx}+b).$$Where $\hat{p}$ is our label of probability. Or to be more formal,
+$$
+P(y=1\,|\,\boldsymbol{x};\boldsymbol{w},b)= \sigma(\boldsymbol{w^Tx}+b) .
+$$
+Now, we can account for "a form of". We let $z=\boldsymbol{w^Tx}+b$ to denote the score. Then, we transform the Equation (2) to get,
+$$
+\begin{align}
+	\hat{p} &= \sigma(\boldsymbol{w^Tx}+b) \\
+	&= \frac1{1+e^{-z}} \\
+	1-\hat{p} &= 1 - \sigma(\boldsymbol{w^Tx}+b) \\
+	&= \frac1{1+e^{z}}. \\
+\end{align}
+$$
+Note that $\frac {\hat{p}}{1-\hat{p}}=e^z$. Thus we have,
+$$\ln\left(\frac {\hat{p}} {1-\hat{p}}\right)=z=\boldsymbol{w^\top x}+b.$$
+According to Equation (3), we know that the score is actually is "Log-Odd". That is "a form of probability". This make sense. In binary classification, if $\hat{p}>0.5$, we consider it is in the right class, and that correspond to score greater than 0. 
+## How to perform "regression"?
+Our model is now Equation (2), or alternatively Equation (3). It is good, but there is an annoying problem. We don't have the ground truth label for $p$! What we have is the class for feature $x$. How can we use the regression algorithm if we don't have the labels?
+
+Let's look at our model carefully. The output of Equation (2) is a probability. So our model is predicting a conditional probability distribution. We can write our model as $\phi_{\boldsymbol{w}, b}(\{\boldsymbol{x}, y\})$. The formula of our model can be obtain from Equation (\*) by also considering the case that $y=0$. Thus, we have,
+$$P(y\,|\,\boldsymbol{x};\boldsymbol{w}, b)=\phi_{\boldsymbol{w}, b}(\boldsymbol{x}, y)=(\hat{p})^{y}(1-\hat{p})^{1-y}.$$
+At this point, we can finally use MLE to solve for the parameters. Assume our dataset is $\{(\boldsymbol{x_1}, y_1),(\boldsymbol{x_2}, y_2),\dots,(\boldsymbol{x_n}, y_n)\}$. Therefore, the likelihood is
+$$
+\begin{align}
+\mathcal{L}(\boldsymbol{w}, b)&=\prod_{i=1}^nP(y_i\,|\,\boldsymbol{x}_i;\boldsymbol{w}, b) \\
+\Rightarrow \ln(\mathcal{L}(\boldsymbol{w}, b))&= \sum_{i=1}^{n}\ln((\hat{p}_i)^{y_i}(1-\hat{p}_i)^{1-y_i}) \\
+&= \sum_{i=1}^{n}\left[y_i\ln(\hat p_i)+(1-y_i)\ln(1-\hat p_i)\right].
+\end{align}
+$$
+Our problem is now __maximize__ $\ln(\mathcal{L}(\boldsymbol{w}, b))$. To align with the common notation in machine learning, we let $J(\boldsymbol{w}, b)=-\ln(\mathcal{L}(\boldsymbol{w}, b))$. Thus, $J(\boldsymbol{w}, b)$ is our loss function, which has a famous name "__Cross-Entropy Loss__". We can now use various optimization methods, such as gradient decent, to solve for $\boldsymbol{w}$ and $b$.
+## A few insights
+We first transform the classification problem into a regression problem that we familiar with by introducing the concept of score. The general idea of score is we assign positive score to target class and negative score for others. Then we use linear regression to fit a model to the score, and the line of zero score will be our separation border.
+
+Thus, the new problem is how to define a meaningful score for the data. The logistic regression use logistic function to transform the probability of data into score, therefore further transform the problem into optimizing a probability model. Then, it is our old friend MLE.
+
+The most important and crucial point in LLR is the transformation form a regression problem of score to a MLE problem for a probability model. So the name of LLR is misleading. If we don't need to account for the "regression" in its name, **_we can deem it as a problem of predicting the probability that a sample belongs to positive class._** Then inversely construct the probability from the data.
+## Relation to multi-class classification
+In binary classification, our model generates $z=\boldsymbol{w^\top x}+b$ and $\hat{p}=\sigma (z)$. We interpret $z$ as the score for the positive class. Now, in multi-class scenario, we don't have a "positive" class. All class can be seen as "positive". Thus, we now either train a set of  "one-to-one" classifiers for each pair of the class, or train a "one-to-rest" classifier for each class. That is what SVM in sklearn does.
+
+However, in modern deep neural networks, things don't work like this. Instead, we have a model that give a score to each class. Therefore, the "raw" output generated by our model becomes
+$$
+z_{i} = \boldsymbol{w_{i}^\top x}+b_{i}.
+$$
+Where each $i$ corresponds to one class. If we have $k$ classes in total, we can merge the bias into the weight by letting $\tilde{\boldsymbol{x}}=[\boldsymbol{x};1]$ and combine the components into a matrix representation:
+$$
+\boldsymbol{z}=\boldsymbol{W \tilde x}.
+$$
+Here, $\boldsymbol{z} \in \mathbb{R}^k,\,\boldsymbol{W}\in \mathbb{R}^{k\times (f+1)},\,\boldsymbol{\tilde x} \in \mathbb{R}^{f+1}$, where $n$ is the number of classes and $f$ is number of the features. We give a name to our new $z$. We call it **logits** instead of score in binary case.
+
+The next step is to get our probability from the logits we get. In binary case, we use sigmoid (logistic) function. Remember that the purpose of the function is to normalize the score to $[0,1]$. In another word, we need a function that map the logits to a probability distribution. The common approach is softmax function:
+$$
+\begin{align*}
+\mathrm{Softmax}: \mathbb{R}^n &\to \mathbb{R}^n \\
+\begin{pmatrix}
+z_{1} \\
+z_{2} \\
+\vdots \\
+z_{n}
+\end{pmatrix}&\mapsto \begin{pmatrix}
+\frac{\exp(z_{1})}{\sum_{i=1}^n\exp(z_{i})} \\
+\frac{\exp(z_{2})}{\sum_{i=1}^n\exp(z_{i})} \\
+\vdots \\
+\frac{\exp(z_{n})}{\sum_{i=1}^n\exp(z_{i})} \\
+\end{pmatrix}
+\end{align*}.
+$$
+Note that all the components of the image sum up to $1$. Using our softmax function, we have a multi-class version of Equation (2):
+$$
+\boldsymbol{\tilde{p}}=\mathrm{Softmax}(\boldsymbol{z})=\mathrm{Softmax}(\boldsymbol{W \tilde{x}}).
+$$
+Thus, Equation (4) becomes
+$$
+P\left(\boldsymbol{y}\mid \boldsymbol{x};\boldsymbol{W}\right)=\prod_{i=1}^{k}\boldsymbol{\tilde {p}}_{i}^{\boldsymbol{y}_{i}}.
+$$
+Here, $\boldsymbol{y}$ is one-hot encoded. To find the best $\boldsymbol{W}$, we use MLE estimation on the same dataset assumption to get
+$$
+\begin{align}
+\mathcal{L}(\boldsymbol{W})&=\prod_{j=1}^{n}\prod_{i=1}^{k}\left(\tilde{\boldsymbol{p}}_{i}^{(j)}\right)^{\boldsymbol{y}_{i}^{(j)}} \\
+\implies \log \mathcal{L}(\boldsymbol{W})&=\sum_{j=1}^{n}\sum_{i=1}^{k}{\boldsymbol{y}_{i}^{(j)}}\log(\tilde{\boldsymbol{p}}_{i}^{(j)}).
+\end{align}
+$$
+We set $J(\boldsymbol{W})=-\frac{1}{n}\log\mathcal{L}(\boldsymbol{W})$. Thus MLE is equivalent to minimize $J$. We also called $J$ the __Cross Entropy Loss__ for multi-class classification. Note that we divide the likelihood by $n$ to make it independent of the sample size. Thus it is a consistent reflection of the model's training error. As we can see here, if $\boldsymbol{y}$ is one-hot encoded, for each data sample, the loss is $-\log(\tilde{\boldsymbol{p}_{i}})$, where $i$ is the index of the ground-true label. This is consistent with the meaning of MLE, maximizing the probability of the correct label given the features and weight.
+
+In MLP or other deep learning models, we simply generalize $\boldsymbol{W}$ to all the parameters involved and logits $\boldsymbol{z}$ to the output of the last fully connected layer.
