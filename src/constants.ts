@@ -21,7 +21,7 @@ export const DATA: SiteData = {
     image: "/assets/cropped_circle_image.png", // Replace with your photo
     cv: "/assets/cv.pdf", // Place your cv.pdf in the assets folder
     shortBio: "I am interested in machine learning, computer vision. My research focuses on improving the quality of dynamic scene recontruction.",
-    longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). My academic interests lie at the intersection of computer vision and deep learning, with a particular focus on 4D scene reconstruction, dynamic 3D vision, and neural rendering techniques such as NeRF and 3D/4D Gaussian Splatting.
+    longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). My academic interests lie at the intersection of computer vision and deep learning, with a particular focus on 4D reconstruction, 3D computer vision, and neural rendering techniques such as NeRF and 3D Gaussian Splatting.
     `,
     socials: [
       { label: "Google Scholar", url: "https://scholar.google.com/citations?user=4H2KSRAAAAAJ&hl=en", icon: "scholar" },
