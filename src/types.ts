@@ -67,6 +67,7 @@ export interface BlogPost {
   summary: string;
   content?: string; // Markdown content could go here
   slug: string;
+  format?: 'md' | 'html'; // Defaults to 'md'
 }
 
 export interface SiteConfig {

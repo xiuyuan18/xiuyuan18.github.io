@@ -84,12 +84,13 @@ export const DATA: SiteData = {
       summary: "A concise summary of logistic linear classification, including its mathematical formulation and usage in different scenarios.",
       slug: "Logistic Linear Classification"
     },
-    // {
-    //   id: "b2",
-    //   title: "How to Write a Rebuttal",
-    //   date: "July 2024",
-    //   summary: "A guide for PhD students on navigating the conference rebuttal process effectively.",
-    //   slug: "how-to-write-rebuttal"
-    // }
+    {
+      id: "b2",
+      title: "How to Write a Rebuttal",
+      date: "July 2024",
+      summary: "A guide for PhD students on navigating the conference rebuttal process effectively.",
+      slug: "power_series",
+      format: "html",
+    }
   ]
 };
