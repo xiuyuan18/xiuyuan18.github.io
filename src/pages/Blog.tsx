@@ -1,6 +1,7 @@
+"use client";
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { DATA } from '../constants';
+import Link from 'next/link';
+import { DATA } from '@/src/constants';
 
 const Blog: React.FC = () => {
   return (
@@ -11,7 +12,7 @@ const Blog: React.FC = () => {
 
       <div className="space-y-8">
         {DATA.blog.map((post) => (
-          <Link key={post.id} to={`/blog/${post.slug}`} className="block group cursor-pointer">
+          <Link key={post.id} href={`/blog/${post.slug}`} className="block group cursor-pointer">
             <div className="flex flex-col gap-2">
               <span className="text-sm font-mono text-academic-400">{post.date}</span>
               <h2 className="text-xl font-bold text-academic-900 group-hover:text-academic-accent transition-colors">

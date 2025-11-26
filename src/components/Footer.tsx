@@ -1,5 +1,6 @@
+"use client";
 import React, { useState, useEffect } from 'react';
-import { DATA } from '../constants';
+import { DATA } from '@/src/constants';
 
 const Footer: React.FC = () => {
   const [mounted, setMounted] = useState(false);

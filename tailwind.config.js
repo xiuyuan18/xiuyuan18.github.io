@@ -3,8 +3,10 @@
 export default {
     // 配置需要 Tailwind 处理的文件（Vite 项目通常是 src 下的 HTML/JS/TS/JSX/TSX）
     content: [
-        "./index.html",
-        "./src/**/*.{js,ts,jsx,tsx,css}", // 覆盖 src 下所有相关文件
+        "./src/app/**/*.{js,ts,jsx,tsx}",
+        "./src/pages/**/*.{js,ts,jsx,tsx}",
+        "./src/components/**/*.{js,ts,jsx,tsx}",
+        "./src/index.css"
     ],
     theme: {
         extend: {

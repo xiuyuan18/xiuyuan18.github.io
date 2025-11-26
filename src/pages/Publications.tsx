@@ -1,6 +1,7 @@
 
+"use client";
 import React from 'react';
-import { DATA } from '../constants';
+import { DATA } from '@/src/constants';
 import MediaTeaser from '../components/MediaTeaser';
 
 const Publications: React.FC = () => {
@@ -34,8 +35,8 @@ const Publications: React.FC = () => {
             <div className="space-y-8 pt-4">
               {pubsByYear[year].map((pub) => (
                 <div key={pub.id} className="flex flex-col md:flex-row gap-6 items-start">
-                  
-                   {/* Teaser Section */}
+
+                  {/* Teaser Section */}
                   <MediaTeaser
                     className="w-full md:w-48 shrink-0 h-32"
                     videoSrc={pub.teaser && (pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') || pub.teaser.endsWith('.ogg') || pub.teaser.endsWith('.ogv')) ? pub.teaser : undefined}
@@ -64,13 +65,13 @@ const Publications: React.FC = () => {
                     )}
                     <div className="flex gap-3 pt-1">
                       {pub.links?.map((link, i) => (
-                         <a 
-                            key={i} 
-                            href={link.url}
-                            className="text-xs font-bold text-academic-accent hover:text-academic-800 hover:underline"
-                          >
-                            [{link.label}]
-                          </a>
+                        <a
+                          key={i}
+                          href={link.url}
+                          className="text-xs font-bold text-academic-accent hover:text-academic-800 hover:underline"
+                        >
+                          [{link.label}]
+                        </a>
                       ))}
                     </div>
                   </div>

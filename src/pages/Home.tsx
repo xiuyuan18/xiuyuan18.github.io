@@ -1,7 +1,8 @@
 
+"use client";
 import React from 'react';
-import { Link } from 'react-router-dom';
-import { DATA } from '../constants';
+import Link from 'next/link';
+import { DATA } from '@/src/constants';
 import { Mail, MapPin, Link as LinkIcon, ChevronRight, FileText, Award, GraduationCap } from 'lucide-react';
 import MediaTeaser from '../components/MediaTeaser';
 
@@ -58,14 +59,14 @@ const Home: React.FC = () => {
           </div>
 
           <div className="flex flex-col space-y-1 text-academic-600 text-sm">
-             <div className="flex items-center gap-2 hover:text-academic-accent transition-colors w-fit">
-                <Mail size={16} />
-                <a href={`mailto:${DATA.profile.email}`}>{DATA.profile.email}</a>
-             </div>
-             <div className="flex items-center gap-2">
-                <MapPin size={16} />
-                <span>{DATA.profile.location}</span>
-             </div>
+            <div className="flex items-center gap-2 hover:text-academic-accent transition-colors w-fit">
+              <Mail size={16} />
+              <a href={`mailto:${DATA.profile.email}`}>{DATA.profile.email}</a>
+            </div>
+            <div className="flex items-center gap-2">
+              <MapPin size={16} />
+              <span>{DATA.profile.location}</span>
+            </div>
           </div>
 
           <div className="flex items-center gap-3 pt-2 flex-wrap">
@@ -78,26 +79,26 @@ const Home: React.FC = () => {
                 className="p-2 bg-academic-50 text-academic-600 rounded-full hover:bg-academic-100 hover:text-academic-900 transition-all"
                 title={link.label}
               >
-                {link.icon && iconMap[link.icon] ? iconMap[link.icon] : <LinkIcon size={16}/>}
+                {link.icon && iconMap[link.icon] ? iconMap[link.icon] : <LinkIcon size={16} />}
               </a>
             ))}
-            
+
             {/* CV Button */}
             {DATA.profile.cv && (
-               <a 
-                  href={DATA.profile.cv} 
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-1.5 px-3 py-1.5 bg-academic-800 text-white text-sm font-medium rounded-full hover:bg-academic-700 transition-colors ml-2 shadow-sm"
-               >
-                 <FileText size={14} />
-                 <span>CV</span>
-               </a>
+              <a
+                href={DATA.profile.cv}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-1.5 px-3 py-1.5 bg-academic-800 text-white text-sm font-medium rounded-full hover:bg-academic-700 transition-colors ml-2 shadow-sm"
+              >
+                <FileText size={14} />
+                <span>CV</span>
+              </a>
             )}
           </div>
 
           <div className="prose prose-academic text-academic-700 leading-relaxed max-w-none pt-4">
-             <p>{DATA.profile.longBio}</p>
+            <p>{DATA.profile.longBio}</p>
           </div>
 
           {/* Education Section */}
@@ -109,11 +110,11 @@ const Home: React.FC = () => {
             <div className="space-y-3">
               {DATA.profile.education.map((edu, idx) => (
                 <div key={idx} className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
-                   <div>
-                      <div className="font-bold text-academic-900">{edu.institution}</div>
-                      <div className="text-academic-700">{edu.degree}</div>
-                   </div>
-                   <div className="text-academic-500 font-mono text-sm mt-1 sm:mt-0">{edu.year}</div>
+                  <div>
+                    <div className="font-bold text-academic-900">{edu.institution}</div>
+                    <div className="text-academic-700">{edu.degree}</div>
+                  </div>
+                  <div className="text-academic-500 font-mono text-sm mt-1 sm:mt-0">{edu.year}</div>
                 </div>
               ))}
             </div>
@@ -147,16 +148,16 @@ const Home: React.FC = () => {
         <div className="flex items-baseline justify-between mb-8">
           <h2 className="text-2xl font-serif font-bold text-academic-800">Selected Publications</h2>
           {DATA.config.showPublicationsPage && (
-            <Link to="/publications" className="text-sm font-medium text-academic-accent hover:text-academic-800 flex items-center gap-1">
+            <Link href="/publications" className="text-sm font-medium text-academic-accent hover:text-academic-800 flex items-center gap-1">
               View All <ChevronRight size={14} />
             </Link>
           )}
         </div>
-        
+
         <div className="space-y-8">
           {DATA.publications.filter(p => p.highlight).map((pub) => (
             <div key={pub.id} className="flex flex-col md:flex-row gap-6 group">
-              
+
               {/* Teaser Section */}
               <MediaTeaser
                 className="w-full md:w-48 shrink-0 h-32"
@@ -182,8 +183,8 @@ const Home: React.FC = () => {
                 {pub.links && (
                   <div className="flex gap-3 pt-1">
                     {pub.links.map((link, i) => (
-                      <a 
-                        key={i} 
+                      <a
+                        key={i}
                         href={link.url}
                         className="text-xs font-medium px-2 py-1 rounded border border-academic-200 hover:bg-academic-50 hover:border-academic-300 transition-colors text-academic-600 uppercase tracking-wider"
                       >
@@ -208,17 +209,17 @@ const Home: React.FC = () => {
         <div className="space-y-4">
           {DATA.awards.map((award) => (
             <div key={award.id} className="flex items-start gap-4 group">
-               <div className="p-2 bg-academic-50 rounded-full text-academic-500 group-hover:bg-academic-100 group-hover:text-academic-700 transition-colors">
-                  <Award size={18} />
-               </div>
-               <div>
-                  <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
-                     <span className="font-bold text-academic-900">{award.title}</span>
-                     <span className="hidden sm:inline text-academic-300">&mdash;</span>
-                     <span className="text-academic-600">{award.awarder}</span>
-                  </div>
-                  <div className="text-sm text-academic-400 mt-1 font-medium">{award.date}</div>
-               </div>
+              <div className="p-2 bg-academic-50 rounded-full text-academic-500 group-hover:bg-academic-100 group-hover:text-academic-700 transition-colors">
+                <Award size={18} />
+              </div>
+              <div>
+                <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
+                  <span className="font-bold text-academic-900">{award.title}</span>
+                  <span className="hidden sm:inline text-academic-300">&mdash;</span>
+                  <span className="text-academic-600">{award.awarder}</span>
+                </div>
+                <div className="text-sm text-academic-400 mt-1 font-medium">{award.date}</div>
+              </div>
             </div>
           ))}
         </div>

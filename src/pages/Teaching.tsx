@@ -1,5 +1,6 @@
+"use client";
 import React from 'react';
-import { DATA } from '../constants';
+import { DATA } from '@/src/constants';
 import { BookOpen } from 'lucide-react';
 
 const Teaching: React.FC = () => {

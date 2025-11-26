@@ -1,12 +1,14 @@
 
+"use client";
 import React, { useState } from 'react';
-import { Link, useLocation } from 'react-router-dom';
+import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { Menu, X } from 'lucide-react';
-import { DATA } from '../constants';
+import { DATA } from '@/src/constants';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const location = useLocation();
+  const pathname = usePathname();
 
   const navLinks = [
     { name: 'Home', path: '/', show: true },
@@ -18,31 +20,30 @@ const Navbar: React.FC = () => {
   // Filter visible links
   const visibleLinks = navLinks.filter(link => link.show);
 
-  const isActive = (path: string) => location.pathname === path;
+  const isActive = (path: string) => pathname === path;
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-academic-100">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
-            <Link to="/" className="shrink-0 flex items-center space-x-2">
+            <Link href="/" className="shrink-0 flex items-center space-x-2">
               <span className="font-serif font-bold text-xl tracking-tight text-academic-900">
                 {DATA.profile.name}
               </span>
             </Link>
           </div>
-          
+
           {/* Desktop Menu */}
           <div className="hidden sm:ml-6 sm:items-center sm:space-x-8 md:flex">
             {visibleLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.path}
-                className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200 ${
-                  isActive(link.path)
-                    ? 'text-academic-accent border-b-2 border-academic-accent'
-                    : 'text-academic-600 hover:text-academic-900 hover:border-b-2 hover:border-academic-300'
-                }`}
+                href={link.path}
+                className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200 ${isActive(link.path)
+                  ? 'text-academic-accent border-b-2 border-academic-accent'
+                  : 'text-academic-600 hover:text-academic-900 hover:border-b-2 hover:border-academic-300'
+                  }`}
               >
                 {link.name}
               </Link>
@@ -68,13 +69,12 @@ const Navbar: React.FC = () => {
             {visibleLinks.map((link) => (
               <Link
                 key={link.name}
-                to={link.path}
+                href={link.path}
                 onClick={() => setIsOpen(false)}
-                className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${
-                  isActive(link.path)
-                    ? 'bg-academic-50 border-academic-accent text-academic-accent'
-                    : 'border-transparent text-academic-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800'
-                }`}
+                className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${isActive(link.path)
+                  ? 'bg-academic-50 border-academic-accent text-academic-accent'
+                  : 'border-transparent text-academic-600 hover:bg-gray-50 hover:border-gray-300 hover:text-gray-800'
+                  }`}
               >
                 {link.name}
               </Link>

@@ -1,5 +1,7 @@
+"use client";
 import React, { useEffect, useState } from 'react';
-import { useParams, Link } from 'react-router-dom';
+import Link from 'next/link';
+import { useParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -8,7 +10,10 @@ import { DATA } from '../constants';
 import { ArrowLeft } from 'lucide-react';
 
 const BlogPost: React.FC = () => {
-    const { slug } = useParams<{ slug: string }>();
+    const params = useParams();
+    const slug = Array.isArray((params as any)?.slug)
+        ? (params as any).slug[0]
+        : (params as any)?.slug ?? '';
     const [content, setContent] = useState('');
     const [loading, setLoading] = useState(true);
 
@@ -17,13 +22,7 @@ const BlogPost: React.FC = () => {
     useEffect(() => {
         if (!post) return;
 
-        // Construct path using BASE_URL to handle deployments correctly
-        // This ensures it works if deployed to a subdirectory (e.g. /my-repo/)
-        const baseUrl = import.meta.env.BASE_URL.endsWith('/')
-            ? import.meta.env.BASE_URL
-            : `${import.meta.env.BASE_URL}/`;
-
-        const filePath = `${baseUrl}assets/posts/${post.slug}.md`;
+        const filePath = `/assets/posts/${post.slug}.md`;
 
         fetch(filePath)
             .then(res => {
@@ -55,14 +54,14 @@ const BlogPost: React.FC = () => {
         return (
             <div className="text-center py-12">
                 <h2 className="text-2xl font-bold text-academic-900">Post not found</h2>
-                <Link to="/blog" className="text-academic-accent hover:underline mt-4 inline-block">Back to Blog</Link>
+                <Link href="/blog" className="text-academic-accent hover:underline mt-4 inline-block">Back to Blog</Link>
             </div>
         );
     }
 
     return (
         <div className="animate-fadeIn max-w-3xl mx-auto">
-            <Link to="/blog" className="inline-flex items-center text-academic-500 hover:text-academic-accent transition-colors mb-8">
+            <Link href="/blog" className="inline-flex items-center text-academic-500 hover:text-academic-accent transition-colors mb-8">
                 <ArrowLeft size={16} className="mr-2" /> Back to Blog
             </Link>
 
