@@ -13,7 +13,7 @@ const nextConfig = {
 
     // If deploying to https://<USERNAME>.github.io/<REPO_NAME>/
     // Set basePath to '/<REPO_NAME>'
-    // basePath: '/repo-name', 
+    // basePath: '/',
 
     images: {
         unoptimized: true,
