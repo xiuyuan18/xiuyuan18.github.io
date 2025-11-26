@@ -82,7 +82,7 @@ export const DATA: SiteData = {
       title: "Note on Logistic Linear Classification",
       date: "Oct 2025",
       summary: "A concise summary of logistic linear classification, including its mathematical formulation and usage in different scenarios.",
-      slug: "Logistic Linear Classification"
+      slug: "Logistic_Linear_Classification"
     },
     {
       id: "b2",

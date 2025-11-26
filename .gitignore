@@ -12,6 +12,7 @@ dist
 dist-ssr
 out
 .next/**
+next-env.d.ts
 
 *.local
 

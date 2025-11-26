@@ -31,10 +31,11 @@ const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) =
     const post = DATA.blog.find(p => p.slug === slug);
     const isHtml = post?.format === 'html';
 
-    // Construct path using BASE_URL to handle deployments correctly
-    const baseUrl = import.meta.env.BASE_URL.endsWith('/')
-        ? import.meta.env.BASE_URL
-        : `${import.meta.env.BASE_URL}/`;
+    // Construct path using NEXT_PUBLIC_BASE_PATH to handle deployments correctly
+    const publicBase = process.env.NEXT_PUBLIC_BASE_PATH || '';
+    const baseUrl = publicBase.endsWith('/')
+        ? publicBase
+        : `${publicBase}/`;
 
     useEffect(() => {
         // If content is already available (passed from server), skip fetch
