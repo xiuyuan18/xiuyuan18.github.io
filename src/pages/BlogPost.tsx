@@ -169,7 +169,7 @@ const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) =
                             h1: ({ node, ...props }) => <h2 className="text-2xl font-bold mt-8 mb-4 text-academic-900" {...props} />,
                             h2: ({ node, ...props }) => <h3 className="text-xl font-bold mt-6 mb-3 text-academic-900" {...props} />,
                             h3: ({ node, ...props }) => <h4 className="text-lg font-bold mt-4 mb-2 text-academic-900" {...props} />,
-                            p: ({ node, ...props }) => <p className="mb-4 leading-relaxed" {...props} />,
+                            p: ({ node, ...props }) => <p className="mb-4 text-justify leading-relaxed" {...props} />,
                             ul: ({ node, ...props }) => <ul className="list-disc list-inside mb-4 space-y-1 pl-4" {...props} />,
                             ol: ({ node, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-1 pl-4" {...props} />,
                             li: ({ node, ...props }) => <li className="pl-1" {...props} />,
