@@ -9,46 +9,55 @@ import 'katex/dist/katex.min.css';
 import { DATA } from '../constants';
 import { ArrowLeft } from 'lucide-react';
 
-const BlogPost: React.FC = () => {
+interface BlogPostProps {
+    initialContent?: string;
+    slug?: string;
+}
+
+const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) => {
     const params = useParams();
-    const slug = Array.isArray((params as any)?.slug)
-        ? (params as any).slug[0]
-        : (params as any)?.slug ?? '';
-    const [content, setContent] = useState('');
-    const [loading, setLoading] = useState(true);
+
+    // Prioritize propSlug, then decoded param slug
+    const slug = propSlug || decodeURIComponent(
+        (Array.isArray((params as any)?.slug)
+            ? (params as any).slug[0]
+            : (params as any)?.slug ?? '')
+    );
+
+    const [content, setContent] = useState(initialContent || '');
+    const [loading, setLoading] = useState(!initialContent);
 
     const post = DATA.blog.find(p => p.slug === slug);
 
     useEffect(() => {
+        // If content is already available (passed from server), skip fetch
+        if (initialContent || content) {
+            setLoading(false);
+            return;
+        }
+
         if (!post) return;
 
         const filePath = `/assets/posts/${post.slug}.md`;
 
         fetch(filePath)
             .then(res => {
-                if (!res.ok) throw new Error(`Failed to load post: ${res.status} ${res.statusText}`);
-
-                // Check if we got HTML back (which means 404 handled by SPA fallback)
-                const contentType = res.headers.get('content-type');
-                if (contentType && contentType.includes('text/html')) {
-                    throw new Error('File not found (received HTML)');
-                }
+                if (!res.ok) throw new Error(`Failed to load post`);
                 return res.text();
             })
             .then(text => {
-                // Double check if the content looks like the index.html
-                if (text.trim().startsWith('<!DOCTYPE html>') || text.includes('<div id="root">')) {
-                    throw new Error('File not found (received HTML content)');
+                // Check for HTML response (404 page)
+                if (text.trim().startsWith('<')) {
+                    throw new Error('Invalid content');
                 }
                 setContent(text);
                 setLoading(false);
             })
             .catch(err => {
                 console.error(err);
-                setContent(`# Error\n\nCould not load the blog post content.\n\n**Debug Info:**\n- Slug: \`${post.slug}\`\n- Attempted Path: \`${filePath}\`\n- Error: ${err.message}\n\nPlease ensure the markdown file exists at \`public/assets/posts/${post.slug}.md\`.`);
                 setLoading(false);
             });
-    }, [post]);
+    }, [post, initialContent, content]); // Added content to deps to prevent re-fetching
 
     if (!post) {
         return (
