@@ -1,0 +1,144 @@
+1:"$Sreact.fragment"
+2:I[39756,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"default"]
+3:I[37457,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"default"]
+5:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
+6:"$Sreact.suspense"
+8:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"ViewportBoundary"]
+a:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"MetadataBoundary"]
+c:I[68027,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"default"]
+:HL["/_next/static/chunks/4e96c069b687989c.css","style"]
+:HC["/",""]
+:HL["/_next/static/chunks/6f04dbb31b3b2afc.css","style"]
+0:{"P":null,"b":"6BsQ3_S5uKM3TkejA2UU_","c":["","blog","Logistic_Linear_Classification"],"q":"","i":false,"f":[[["",{"children":["blog",{"children":[["slug","Logistic_Linear_Classification","d"],{"children":["__PAGE__",{}]}]}]},"$undefined","$undefined",true],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/4e96c069b687989c.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L4",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/6f04dbb31b3b2afc.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/ef01964ba15b7aec.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/bb4a47aac219b52c.js","async":true,"nonce":"$undefined"}]],["$","$L5",null,{"children":["$","$6",null,{"name":"Next.MetadataOutlet","children":"$@7"}]}]]}],{},null,false,false]},null,false,false]},null,false,false]},null,false,false],["$","$1","h",{"children":[null,["$","$L8",null,{"children":"$@9"}],["$","div",null,{"hidden":true,"children":["$","$La",null,{"children":["$","$6",null,{"name":"Next.Metadata","children":"$@b"}]}]}],null]}],false]],"m":"$undefined","G":["$c",[]],"S":true}
+d:I[45678,["/_next/static/chunks/ef01964ba15b7aec.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
+e:I[67131,["/_next/static/chunks/ef01964ba15b7aec.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
+f:T24f3,## Why "regression"?
+It is a classification problem, but the name of the algorithm is "regression". So, what are we regress? Why turn the classification problem into a regression problem?
+
+Suppose that our data live in $\mathbb{R}^d$, the goal of linear classification is to find a line (lines) that separate different classes. To achieve this, the common approach of various linear classifiers is assign a score $\boldsymbol{w^Tx}+b$ for all the data point $\boldsymbol{x} \in \mathbb{R^d}$ and use regression to find the weights $\boldsymbol{w}$ and $b$. Then the line $\boldsymbol{w^Tx}+b=0$ is the separation criteria.
+
+As a special case, for binary classification, we want the score to be positive for one class and negative for the other. Now the question is turned into how to perform regression. We only have a two value label instead of the continuous label in the regression problem. What should be our score?
+## What we perform regression on?
+The idea of Linear Logistic Regression is to use "a form of probability" as the score. So what is "a form of probability"? The idea is a little confusing. Let us look at it by parts.
+
+First, why probability? It is a kind of method to make discrete class label continuous. We can't regress on the class label, but we can perform regression on the probability of a data point belonging to a class. For example, given the wage of a worker $x$, determine whether he owns a car or not. The label is discrete. But how about we turn the label into the probability of he owns a car given the wage $x$. That is $\text{Prob}(\text{owns a car}\,|\,x)$. Great! Now the label is continuous. The goal of our model is know to predict this probability.
+
+However, the range of probability, which is $[0, 1]$, doesn't match with the range of $\boldsymbol{w^Tx}+b$. This is where the Logistic function comes out. We have
+$$
+\begin{equation}
+\sigma(x)=\frac1{1+e^{-x}}.
+\end{equation}
+$$
+This function map $\mathbb{R}$ to $(0, 1)$. Thus our model becomes
+$$
+\begin{equation}
+\hat{p}=\sigma(\boldsymbol{w^Tx}+b).
+\end{equation}
+$$
+Where $\hat{p}$ is our label of probability. Or to be more formal,
+$$
+\begin{equation*}
+P(y=1\,|\,\boldsymbol{x};\boldsymbol{w},b)= \sigma(\boldsymbol{w^Tx}+b). \tag{*}
+\end{equation*}
+$$
+Now, we can account for "a form of". We let $z=\boldsymbol{w^Tx}+b$ to denote the score. Then, we transform the Equation (2) to get,
+$$
+\begin{align*}
+	\hat{p} &= \sigma(\boldsymbol{w^Tx}+b) \\
+	&= \frac1{1+e^{-z}} \\
+	1-\hat{p} &= 1 - \sigma(\boldsymbol{w^Tx}+b) \\
+	&= \frac1{1+e^{z}}. \\
+\end{align*}
+$$
+Note that $\frac {\hat{p}}{1-\hat{p}}=e^z$. Thus we have,
+$$
+\begin{equation}
+\ln\left(\frac {\hat{p}} {1-\hat{p}}\right)=z=\boldsymbol{w^\top x}+b.
+\end{equation}
+$$
+According to Equation (3), we know that the score is actually is "Log-Odd". That is "a form of probability". This make sense. In binary classification, if $\hat{p}>0.5$, we consider it is in the right class, and that correspond to score greater than 0. 
+## How to perform "regression"?
+Our model is now Equation (2), or alternatively Equation (3). It is good, but there is an annoying problem. We don't have the ground truth label for $p$! What we have is the class for feature $x$. How can we use the regression algorithm if we don't have the labels?
+
+Let's look at our model carefully. The output of Equation (2) is a probability. So our model is predicting a conditional probability distribution. We can write our model as $\phi_{\boldsymbol{w}, b}(\{\boldsymbol{x}, y\})$. The formula of our model can be obtain from Equation (\*) by also considering the case that $y=0$. Thus, we have,
+$$
+\begin{equation}
+P(y\,|\,\boldsymbol{x};\boldsymbol{w}, b)=\phi_{\boldsymbol{w}, b}(\boldsymbol{x}, y)=(\hat{p})^{y}(1-\hat{p})^{1-y}.
+\end{equation}
+$$
+At this point, we can finally use MLE to solve for the parameters. Assume our dataset is $\{(\boldsymbol{x_1}, y_1),(\boldsymbol{x_2}, y_2),\dots,(\boldsymbol{x_n}, y_n)\}$. Therefore, the likelihood is
+$$
+\begin{align}
+\mathcal{L}(\boldsymbol{w}, b)&=\prod_{i=1}^nP(y_i\,|\,\boldsymbol{x}_i;\boldsymbol{w}, b) \\
+\Rightarrow \ln(\mathcal{L}(\boldsymbol{w}, b))&= \sum_{i=1}^{n}\ln((\hat{p}_i)^{y_i}(1-\hat{p}_i)^{1-y_i}) \\
+&= \sum_{i=1}^{n}\left[y_i\ln(\hat p_i)+(1-y_i)\ln(1-\hat p_i)\right].
+\end{align}
+$$
+Our problem is now __maximize__ $\ln(\mathcal{L}(\boldsymbol{w}, b))$. To align with the common notation in machine learning, we let $J(\boldsymbol{w}, b)=-\ln(\mathcal{L}(\boldsymbol{w}, b))$. Thus, $J(\boldsymbol{w}, b)$ is our loss function, which has a famous name "__Cross-Entropy Loss__". We can now use various optimization methods, such as gradient decent, to solve for $\boldsymbol{w}$ and $b$.
+## A few insights
+We first transform the classification problem into a regression problem that we familiar with by introducing the concept of score. The general idea of score is we assign positive score to target class and negative score for others. Then we use linear regression to fit a model to the score, and the line of zero score will be our separation border.
+
+Thus, the new problem is how to define a meaningful score for the data. The logistic regression use logistic function to transform the probability of data into score, therefore further transform the problem into optimizing a probability model. Then, it is our old friend MLE.
+
+The most important and crucial point in LLR is the transformation form a regression problem of score to a MLE problem for a probability model. So the name of LLR is misleading. If we don't need to account for the "regression" in its name, **_we can deem it as a problem of predicting the probability that a sample belongs to positive class._** Then inversely construct the probability from the data.
+## Relation to multi-class classification
+In binary classification, our model generates $z=\boldsymbol{w^\top x}+b$ and $\hat{p}=\sigma (z)$. We interpret $z$ as the score for the positive class. Now, in multi-class scenario, we don't have a "positive" class. All class can be seen as "positive". Thus, we now either train a set of  "one-to-one" classifiers for each pair of the class, or train a "one-to-rest" classifier for each class. That is what SVM in sklearn does.
+
+However, in modern deep neural networks, things don't work like this. Instead, we have a model that give a score to each class. Therefore, the "raw" output generated by our model becomes
+$$
+\begin{equation}
+z_{i} = \boldsymbol{w_{i}^\top x}+b_{i}.
+\end{equation}
+$$
+Where each $i$ corresponds to one class. If we have $k$ classes in total, we can merge the bias into the weight by letting $\tilde{\boldsymbol{x}}=[\boldsymbol{x};1]$ and combine the components into a matrix representation:
+$$
+\begin{equation}
+\boldsymbol{z}=\boldsymbol{W \tilde x}.
+\end{equation}
+$$
+Here, $\boldsymbol{z} \in \mathbb{R}^k,\,\boldsymbol{W}\in \mathbb{R}^{k\times (f+1)},\,\boldsymbol{\tilde x} \in \mathbb{R}^{f+1}$, where $n$ is the number of classes and $f$ is number of the features. We give a name to our new $z$. We call it **logits** instead of score in binary case.
+
+The next step is to get our probability from the logits we get. In binary case, we use sigmoid (logistic) function. Remember that the purpose of the function is to normalize the score to $[0,1]$. In another word, we need a function that map the logits to a probability distribution. The common approach is softmax function:
+$$
+\begin{align}
+\mathrm{Softmax}: \mathbb{R}^n &\to \mathbb{R}^n \\
+\begin{pmatrix}
+z_{1} \\
+z_{2} \\
+\vdots \\
+z_{n}
+\end{pmatrix}&\mapsto \begin{pmatrix}
+\frac{\exp(z_{1})}{\sum_{i=1}^n\exp(z_{i})} \\
+\frac{\exp(z_{2})}{\sum_{i=1}^n\exp(z_{i})} \\
+\vdots \\
+\frac{\exp(z_{n})}{\sum_{i=1}^n\exp(z_{i})} \\
+\end{pmatrix}.
+\end{align}
+$$
+Note that all the components of the image sum up to $1$. Using our softmax function, we have a multi-class version of Equation (2):
+$$
+\begin{equation}
+\boldsymbol{\tilde{p}}=\mathrm{Softmax}(\boldsymbol{z})=\mathrm{Softmax}(\boldsymbol{W \tilde{x}}).
+\end{equation}
+$$
+Thus, Equation (4) becomes
+$$
+\begin{equation}
+P\left(\boldsymbol{y}\mid \boldsymbol{x};\boldsymbol{W}\right)=\prod_{i=1}^{k}\boldsymbol{\tilde {p}}_{i}^{\boldsymbol{y}_{i}}.
+\end{equation}
+$$
+Here, $\boldsymbol{y}$ is one-hot encoded. To find the best $\boldsymbol{W}$, we use MLE estimation on the same dataset assumption to get
+$$
+\begin{align}
+\mathcal{L}(\boldsymbol{W})&=\prod_{j=1}^{n}\prod_{i=1}^{k}\left(\tilde{\boldsymbol{p}}_{i}^{(j)}\right)^{\boldsymbol{y}_{i}^{(j)}} \\
+\implies \log \mathcal{L}(\boldsymbol{W})&=\sum_{j=1}^{n}\sum_{i=1}^{k}{\boldsymbol{y}_{i}^{(j)}}\log(\tilde{\boldsymbol{p}}_{i}^{(j)}).
+\end{align}
+$$
+We set $J(\boldsymbol{W})=-\frac{1}{n}\log\mathcal{L}(\boldsymbol{W})$. Thus MLE is equivalent to minimize $J$. We also called $J$ the __Cross Entropy Loss__ for multi-class classification. Note that we divide the likelihood by $n$ to make it independent of the sample size. Thus it is a consistent reflection of the model's training error. As we can see here, if $\boldsymbol{y}$ is one-hot encoded, for each data sample, the loss is $-\log(\tilde{\boldsymbol{p}_{i}})$, where $i$ is the index of the ground-true label. This is consistent with the meaning of MLE, maximizing the probability of the correct label given the features and weight.
+
+In MLP or other deep learning models, we simply generalize $\boldsymbol{W}$ to all the parameters involved and logits $\boldsymbol{z}$ to the output of the last fully connected layer.4:["$","div",null,{"className":"min-h-screen flex flex-col bg-white","children":[["$","$Ld",null,{}],["$","main",null,{"className":"grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12","children":["$","$Le",null,{"initialContent":"$f","slug":"Logistic_Linear_Classification"}]}],"$L10"]}]
+11:I[13642,["/_next/static/chunks/ef01964ba15b7aec.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
+10:["$","$L11",null,{}]
+9:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+b:[["$","title","0",{"children":"Academic Homepage"}]]
+7:null
