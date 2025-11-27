@@ -16,7 +16,7 @@ export const DATA: SiteData = {
     publicationName: "Xiuyuan Yu", // This name is used to boldface the author in the publication list
     title: "Undergraduate Student",
     affiliation: "The Chinese University of Hong Kong",
-    email: "1155211255@link.cuhk.edu.hk",
+    email: "xyyu@link.cuhk.edu.hk",
     location: "Hong Kong, China",
     image: "/assets/cropped_circle_image.png", // Replace with your photo
     cv: "/assets/cv.pdf", // Place your cv.pdf in the assets folder
