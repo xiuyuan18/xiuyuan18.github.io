@@ -1,7 +1,7 @@
 1:"$Sreact.fragment"
-2:I[45678,["/_next/static/chunks/ef01964ba15b7aec.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
-3:I[67131,["/_next/static/chunks/ef01964ba15b7aec.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
-a:I[13642,["/_next/static/chunks/ef01964ba15b7aec.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
+2:I[45678,["/_next/static/chunks/64a16d540dc78d59.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
+3:I[67131,["/_next/static/chunks/64a16d540dc78d59.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
+a:I[13642,["/_next/static/chunks/64a16d540dc78d59.js","/_next/static/chunks/bb4a47aac219b52c.js"],"default"]
 b:I[97367,["/_next/static/chunks/ff1a16fafef87110.js","/_next/static/chunks/247eb132b7f7b574.js"],"OutletBoundary"]
 c:"$Sreact.suspense"
 :HL["/_next/static/chunks/6f04dbb31b3b2afc.css","style"]
@@ -129,10 +129,10 @@ $$
 $$
 We set $J(\boldsymbol{W})=-\frac{1}{n}\log\mathcal{L}(\boldsymbol{W})$. Thus MLE is equivalent to minimize $J$. We also called $J$ the __Cross Entropy Loss__ for multi-class classification. Note that we divide the likelihood by $n$ to make it independent of the sample size. Thus it is a consistent reflection of the model's training error. As we can see here, if $\boldsymbol{y}$ is one-hot encoded, for each data sample, the loss is $-\log(\tilde{\boldsymbol{p}_{i}})$, where $i$ is the index of the ground-true label. This is consistent with the meaning of MLE, maximizing the probability of the correct label given the features and weight.
 
-In MLP or other deep learning models, we simply generalize $\boldsymbol{W}$ to all the parameters involved and logits $\boldsymbol{z}$ to the output of the last fully connected layer.0:{"buildId":"GGhAg-bd5kfssaLGlRYI9","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen flex flex-col bg-white","children":[["$","$L2",null,{}],["$","main",null,{"className":"grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12","children":["$","$L3",null,{"initialContent":"$4","slug":"Logistic_Linear_Classification"}]}],"$L5"]}],["$L6","$L7","$L8"],"$L9"]}],"loading":null,"isPartial":false}
+In MLP or other deep learning models, we simply generalize $\boldsymbol{W}$ to all the parameters involved and logits $\boldsymbol{z}$ to the output of the last fully connected layer.0:{"buildId":"I_9c72Vk_AGA_hwiGT9uP","rsc":["$","$1","c",{"children":[["$","div",null,{"className":"min-h-screen flex flex-col bg-white","children":[["$","$L2",null,{}],["$","main",null,{"className":"grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12","children":["$","$L3",null,{"initialContent":"$4","slug":"Logistic_Linear_Classification"}]}],"$L5"]}],["$L6","$L7","$L8"],"$L9"]}],"loading":null,"isPartial":false}
 5:["$","$La",null,{}]
 6:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/6f04dbb31b3b2afc.css","precedence":"next"}]
-7:["$","script","script-0",{"src":"/_next/static/chunks/ef01964ba15b7aec.js","async":true}]
+7:["$","script","script-0",{"src":"/_next/static/chunks/64a16d540dc78d59.js","async":true}]
 8:["$","script","script-1",{"src":"/_next/static/chunks/bb4a47aac219b52c.js","async":true}]
 9:["$","$Lb",null,{"children":["$","$c",null,{"name":"Next.MetadataOutlet","children":"$@d"}]}]
 d:null

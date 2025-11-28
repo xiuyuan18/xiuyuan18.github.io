@@ -1,18 +1,18 @@
 self.__BUILD_MANIFEST = {
   "/Blog": [
-    "static/chunks/ddbfacb4bf1175c8.js"
+    "static/chunks/8cc22d216256cc45.js"
   ],
   "/BlogPost": [
-    "static/chunks/72754bbe684fe661.js"
+    "static/chunks/4448e2372a057650.js"
   ],
   "/Home": [
-    "static/chunks/c5aac8b287be01ac.js"
+    "static/chunks/1a16e632e327a1e6.js"
   ],
   "/Publications": [
-    "static/chunks/63db6b6aab5f82ab.js"
+    "static/chunks/92d84a6632af0e73.js"
   ],
   "/Teaching": [
-    "static/chunks/6fbe6e6e1470dd1c.js"
+    "static/chunks/79e5060eab23d28f.js"
   ],
   "/_error": [
     "static/chunks/713537f62a7fa375.js"
