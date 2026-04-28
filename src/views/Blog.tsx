@@ -1,14 +1,12 @@
-"use client";
 import React from 'react';
 import Link from 'next/link';
 import { DATA } from '@/src/constants';
+import PageHeader from '@/src/components/PageHeader';
 
 const Blog: React.FC = () => {
   return (
     <div className="space-y-12 animate-fadeIn">
-      <div className="border-b border-academic-100 pb-4">
-        <h1 className="text-3xl font-serif font-bold text-academic-900">Blog</h1>
-      </div>
+      <PageHeader title="Blog" />
 
       <div className="space-y-8">
         {DATA.blog.map((post) => (

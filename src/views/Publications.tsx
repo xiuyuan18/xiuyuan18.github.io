@@ -1,11 +1,10 @@
-
-"use client";
 import React from 'react';
 import { DATA } from '@/src/constants';
 import MediaTeaser from '../components/MediaTeaser';
+import PageHeader from '@/src/components/PageHeader';
+import { isAuthorMe, resolvePublicationTeaser } from '@/src/lib/utils';
 
 const Publications: React.FC = () => {
-  // Group by year
   const pubsByYear = DATA.publications.reduce((acc, pub) => {
     const year = pub.year;
     if (!acc[year]) acc[year] = [];
@@ -15,16 +14,9 @@ const Publications: React.FC = () => {
 
   const years = Object.keys(pubsByYear).map(Number).sort((a, b) => b - a);
 
-  // Helper to determine if the author is the profile owner
-  const isAuthorMe = (author: string) => {
-    return author === DATA.profile.name || author === DATA.profile.publicationName;
-  };
-
   return (
     <div className="space-y-12 animate-fadeIn">
-      <div className="border-b border-academic-100 pb-4">
-        <h1 className="text-3xl font-serif font-bold text-academic-900">All Publications</h1>
-      </div>
+      <PageHeader title="All Publications" />
 
       <div className="space-y-12">
         {years.map((year) => (
@@ -33,14 +25,15 @@ const Publications: React.FC = () => {
               {year}
             </h2>
             <div className="space-y-8 pt-4">
-              {pubsByYear[year].map((pub) => (
+              {pubsByYear[year].map((pub) => {
+                const teaser = resolvePublicationTeaser(pub);
+                return (
                 <div key={pub.id} className="flex flex-col md:flex-row gap-6 items-start">
 
-                  {/* Teaser Section */}
                   <MediaTeaser
                     className="w-full md:w-48 shrink-0 h-32"
-                    videoSrc={pub.teaser && (pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') || pub.teaser.endsWith('.ogg') || pub.teaser.endsWith('.ogv')) ? pub.teaser : undefined}
-                    imageSrc={(pub as any).teaserImage || (pub.teaser && !(pub.teaser.endsWith('.mp4') || pub.teaser.endsWith('.webm') || pub.teaser.endsWith('.ogg') || pub.teaser.endsWith('.ogv')) ? pub.teaser : undefined)}
+                    videoSrc={teaser.videoSrc}
+                    imageSrc={teaser.imageSrc}
                     alt={`${pub.title} teaser`}
                   />
 
@@ -76,7 +69,8 @@ const Publications: React.FC = () => {
                     </div>
                   </div>
                 </div>
-              ))}
+                );
+              })}
             </div>
           </section>
         ))}

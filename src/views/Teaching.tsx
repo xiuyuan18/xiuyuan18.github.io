@@ -1,14 +1,12 @@
-"use client";
 import React from 'react';
 import { DATA } from '@/src/constants';
 import { BookOpen } from 'lucide-react';
+import PageHeader from '@/src/components/PageHeader';
 
 const Teaching: React.FC = () => {
   return (
     <div className="space-y-12 animate-fadeIn">
-      <div className="border-b border-academic-100 pb-4">
-        <h1 className="text-3xl font-serif font-bold text-academic-900">Teaching</h1>
-      </div>
+      <PageHeader title="Teaching" />
 
       <div className="grid gap-6">
         {DATA.teaching.map((item) => (

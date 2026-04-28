@@ -1,5 +1,4 @@
-
-"use client";
+'use client';
 import React, { useState } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
@@ -17,13 +16,12 @@ const Navbar: React.FC = () => {
     { name: 'Blog', path: '/blog', show: DATA.config.showBlogPage },
   ];
 
-  // Filter visible links
   const visibleLinks = navLinks.filter(link => link.show);
 
   const isActive = (path: string) => pathname === path;
 
   return (
-    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-academic-100">
+    <nav className="sticky top-0 z-50 bg-white/80 backdrop-blur-md border-b border-academic-100" aria-label="Main navigation">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex justify-between h-16">
           <div className="flex items-center">
@@ -54,9 +52,12 @@ const Navbar: React.FC = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={() => setIsOpen(!isOpen)}
+              aria-expanded={isOpen}
+              aria-controls="mobile-menu"
+              aria-label="Toggle navigation menu"
               className="inline-flex items-center justify-center p-2 rounded-md text-academic-500 hover:text-academic-900 hover:bg-academic-50 focus:outline-none"
             >
-              {isOpen ? <X size={24} /> : <Menu size={24} />}
+              {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
             </button>
           </div>
         </div>
@@ -64,7 +65,7 @@ const Navbar: React.FC = () => {
 
       {/* Mobile Menu Panel */}
       {isOpen && (
-        <div className="md:hidden bg-white border-b border-academic-100 shadow-lg">
+        <div id="mobile-menu" className="md:hidden bg-white border-b border-academic-100 shadow-lg">
           <div className="pt-2 pb-3 space-y-1">
             {visibleLinks.map((link) => (
               <Link
