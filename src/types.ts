@@ -73,7 +73,7 @@ export interface BlogPost {
 export interface SiteConfig {
   showPublicationsPage: boolean;
   showTeachingPage: boolean;
-  showBlogPage: boolean; // New config to toggle blog
+  showBlogPage: boolean;
 }
 
 export interface SiteData {

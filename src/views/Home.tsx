@@ -21,19 +21,19 @@ const Home: React.FC = () => {
         </div>
         <div className="flex-1 space-y-4">
           <div>
-            <h1 className="text-4xl md:text-5xl font-serif font-bold text-academic-900 mb-2">
+            <h1 className="text-4xl md:text-5xl font-serif font-bold text-academic-900 dark:text-academic-100 mb-2">
               {DATA.profile.name}
             </h1>
-            <p className="text-lg md:text-xl text-academic-600 font-medium">
+            <p className="text-lg md:text-xl text-academic-600 dark:text-academic-400 font-medium">
               {DATA.profile.title}
             </p>
-            <p className="text-academic-500 flex items-center gap-2 mt-1">
+            <p className="text-academic-500 dark:text-academic-400 flex items-center gap-2 mt-1">
               <span className="font-semibold">{DATA.profile.affiliation}</span>
             </p>
           </div>
 
-          <div className="flex flex-col space-y-1 text-academic-600 text-sm">
-            <div className="flex items-center gap-2 hover:text-academic-accent transition-colors w-fit">
+          <div className="flex flex-col space-y-1 text-academic-600 dark:text-academic-400 text-sm">
+            <div className="flex items-center gap-2 hover:text-academic-accent dark:hover:text-blue-400 transition-colors w-fit">
               <Mail size={16} />
               <a href={`mailto:${DATA.profile.email}`}>{DATA.profile.email}</a>
             </div>
@@ -50,7 +50,7 @@ const Home: React.FC = () => {
                 href={link.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="p-2 bg-academic-50 text-academic-600 rounded-full hover:bg-academic-100 hover:text-academic-900 transition-all"
+                className="p-2 bg-academic-50 dark:bg-academic-700 text-academic-600 dark:text-academic-400 rounded-full hover:bg-academic-100 dark:hover:bg-academic-600 hover:text-academic-900 dark:hover:text-academic-100 transition-all"
                 title={link.label}
               >
                 {(() => { const Icon = getIconComponent(link.icon); return Icon ? <Icon /> : <LinkIcon size={16} />; })()}
@@ -71,24 +71,24 @@ const Home: React.FC = () => {
             )}
           </div>
 
-          <div className="prose prose-academic text-academic-700 leading-relaxed max-w-none pt-4">
+          <div className="prose prose-academic dark:text-academic-300 leading-relaxed max-w-none pt-4">
             <p>{DATA.profile.longBio}</p>
           </div>
 
           {/* Education Section */}
           <div className="pt-6">
-            <h2 className="text-xl font-serif font-bold text-academic-900 mb-4 flex items-center gap-2">
-              <GraduationCap size={20} className="text-academic-400" />
+            <h2 className="text-xl font-serif font-bold text-academic-900 dark:text-academic-100 mb-4 flex items-center gap-2">
+              <GraduationCap size={20} className="text-academic-400 dark:text-academic-500" />
               Education
             </h2>
             <div className="space-y-3">
               {DATA.profile.education.map((edu, idx) => (
                 <div key={idx} className="flex flex-col sm:flex-row sm:justify-between sm:items-baseline">
                   <div>
-                    <div className="font-bold text-academic-900">{edu.institution}</div>
-                    <div className="text-academic-700">{edu.degree}</div>
+                    <div className="font-bold text-academic-900 dark:text-academic-100">{edu.institution}</div>
+                    <div className="text-academic-700 dark:text-academic-300">{edu.degree}</div>
                   </div>
-                  <div className="text-academic-500 font-mono text-sm mt-1 sm:mt-0">{edu.year}</div>
+                  <div className="text-academic-500 dark:text-academic-400 font-mono text-sm mt-1 sm:mt-0">{edu.year}</div>
                 </div>
               ))}
             </div>
@@ -96,33 +96,33 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <hr className="border-academic-100" />
+      <hr className="border-academic-100 dark:border-academic-700" />
 
       {/* News Section */}
       <section>
         <div className="flex items-baseline justify-between mb-6">
-          <h2 className="text-2xl font-serif font-bold text-academic-800">News</h2>
+          <h2 className="text-2xl font-serif font-bold text-academic-800 dark:text-academic-100">News</h2>
         </div>
         <div className="space-y-4">
           {DATA.news.slice(0, 3).map((item) => (
             <div key={item.id} className="flex flex-col sm:flex-row gap-2 sm:gap-6">
-              <span className="text-sm font-bold text-academic-400 font-mono whitespace-nowrap w-24 shrink-0">
+              <span className="text-sm font-bold text-academic-400 dark:text-academic-500 font-mono whitespace-nowrap w-24 shrink-0">
                 {item.date}
               </span>
-              <div className="text-academic-700" dangerouslySetInnerHTML={{ __html: item.content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+              <div className="text-academic-700 dark:text-academic-300" dangerouslySetInnerHTML={{ __html: item.content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
             </div>
           ))}
         </div>
       </section>
 
-      <hr className="border-academic-100" />
+      <hr className="border-academic-100 dark:border-academic-700" />
 
       {/* Selected Publications */}
       <section>
         <div className="flex items-baseline justify-between mb-8">
-          <h2 className="text-2xl font-serif font-bold text-academic-800">Selected Publications</h2>
+          <h2 className="text-2xl font-serif font-bold text-academic-800 dark:text-academic-100">Selected Publications</h2>
           {DATA.config.showPublicationsPage && (
-            <Link href="/publications" className="text-sm font-medium text-academic-accent hover:text-academic-800 flex items-center gap-1">
+            <Link href="/publications" className="text-sm font-medium text-academic-accent dark:text-blue-400 hover:text-academic-800 dark:hover:text-academic-200 flex items-center gap-1">
               View All <ChevronRight size={14} />
             </Link>
           )}
@@ -142,17 +142,17 @@ const Home: React.FC = () => {
               />
 
               <div className="flex-1 flex flex-col space-y-2">
-                <h3 className="text-lg font-bold text-academic-900 group-hover:text-academic-accent transition-colors">
+                <h3 className="text-lg font-bold text-academic-900 dark:text-academic-100 group-hover:text-academic-accent dark:group-hover:text-blue-400 transition-colors">
                   {pub.title}
                 </h3>
-                <div className="text-academic-700">
+                <div className="text-academic-700 dark:text-academic-300">
                   {pub.authors.map((author, idx) => (
-                    <span key={idx} className={isAuthorMe(author) ? "font-bold text-academic-900" : ""}>
+                    <span key={idx} className={isAuthorMe(author) ? "font-bold text-academic-900 dark:text-academic-100" : ""}>
                       {author}{idx < pub.authors.length - 1 ? ", " : ""}
                     </span>
                   ))}
                 </div>
-                <div className="flex items-center gap-3 text-sm italic text-academic-500">
+                <div className="flex items-center gap-3 text-sm italic text-academic-500 dark:text-academic-400">
                   <span>{pub.venue} {pub.year}</span>
                 </div>
                 {pub.links && (
@@ -161,7 +161,7 @@ const Home: React.FC = () => {
                       <a
                         key={i}
                         href={link.url}
-                        className="text-xs font-medium px-2 py-1 rounded border border-academic-200 hover:bg-academic-50 hover:border-academic-300 transition-colors text-academic-600 uppercase tracking-wider"
+                        className="text-xs font-medium px-2 py-1 rounded border border-academic-200 dark:border-academic-600 hover:bg-academic-50 dark:hover:bg-academic-700 hover:border-academic-300 dark:hover:border-academic-500 transition-colors text-academic-600 dark:text-academic-400 uppercase tracking-wider"
                       >
                         {link.label}
                       </a>
@@ -175,26 +175,26 @@ const Home: React.FC = () => {
         </div>
       </section>
 
-      <hr className="border-academic-100" />
+      <hr className="border-academic-100 dark:border-academic-700" />
 
       {/* Honors and Awards */}
       <section>
         <div className="flex items-baseline justify-between mb-6">
-          <h2 className="text-2xl font-serif font-bold text-academic-800">Honors & Awards</h2>
+          <h2 className="text-2xl font-serif font-bold text-academic-800 dark:text-academic-100">Honors & Awards</h2>
         </div>
         <div className="space-y-4">
           {DATA.awards.map((award) => (
             <div key={award.id} className="flex items-start gap-4 group">
-              <div className="p-2 bg-academic-50 rounded-full text-academic-500 group-hover:bg-academic-100 group-hover:text-academic-700 transition-colors">
+              <div className="p-2 bg-academic-50 dark:bg-academic-700 rounded-full text-academic-500 dark:text-academic-400 group-hover:bg-academic-100 dark:group-hover:bg-academic-600 group-hover:text-academic-700 dark:group-hover:text-academic-200 transition-colors">
                 <Award size={18} />
               </div>
               <div>
                 <div className="flex flex-col sm:flex-row sm:items-baseline sm:gap-2">
-                  <span className="font-bold text-academic-900">{award.title}</span>
-                  <span className="hidden sm:inline text-academic-300">&mdash;</span>
-                  <span className="text-academic-600">{award.awarder}</span>
+                  <span className="font-bold text-academic-900 dark:text-academic-100">{award.title}</span>
+                  <span className="hidden sm:inline text-academic-300 dark:text-academic-600">&mdash;</span>
+                  <span className="text-academic-600 dark:text-academic-400">{award.awarder}</span>
                 </div>
-                <div className="text-sm text-academic-400 mt-1 font-medium">{award.date}</div>
+                <div className="text-sm text-academic-400 dark:text-academic-500 mt-1 font-medium">{award.date}</div>
               </div>
             </div>
           ))}

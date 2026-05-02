@@ -21,7 +21,7 @@ const Publications: React.FC = () => {
       <div className="space-y-12">
         {years.map((year) => (
           <section key={year} className="relative">
-            <h2 className="text-8xl font-bold text-academic-100 absolute -top-10 -left-4 -z-10 opacity-50 select-none">
+            <h2 className="text-8xl font-bold text-academic-100 dark:text-academic-700/50 absolute -top-10 -left-4 -z-10 opacity-50 select-none">
               {year}
             </h2>
             <div className="space-y-8 pt-4">
@@ -38,21 +38,21 @@ const Publications: React.FC = () => {
                   />
 
                   <div className="flex-1 space-y-2">
-                    <h3 className="text-lg font-bold text-academic-900">
+                    <h3 className="text-lg font-bold text-academic-900 dark:text-academic-100">
                       {pub.title}
                     </h3>
-                    <div className="text-academic-700 text-sm">
+                    <div className="text-academic-700 dark:text-academic-300 text-sm">
                       {pub.authors.map((author, idx) => (
-                        <span key={idx} className={isAuthorMe(author) ? "font-bold text-academic-900 border-b border-academic-300" : ""}>
+                        <span key={idx} className={isAuthorMe(author) ? "font-bold text-academic-900 dark:text-academic-100 border-b border-academic-300 dark:border-academic-600" : ""}>
                           {author}{idx < pub.authors.length - 1 ? ", " : ""}
                         </span>
                       ))}
                     </div>
-                    <div className="text-sm font-semibold text-academic-500">
+                    <div className="text-sm font-semibold text-academic-500 dark:text-academic-400">
                       {pub.venue}
                     </div>
                     {pub.abstract && (
-                      <p className="text-sm text-academic-500 leading-relaxed">
+                      <p className="text-sm text-academic-500 dark:text-academic-400 leading-relaxed">
                         {pub.abstract}
                       </p>
                     )}
@@ -61,7 +61,7 @@ const Publications: React.FC = () => {
                         <a
                           key={i}
                           href={link.url}
-                          className="text-xs font-bold text-academic-accent hover:text-academic-800 hover:underline"
+                          className="text-xs font-bold text-academic-accent dark:text-blue-400 hover:text-academic-800 dark:hover:text-academic-200 hover:underline"
                         >
                           [{link.label}]
                         </a>

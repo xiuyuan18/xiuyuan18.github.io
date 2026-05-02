@@ -117,35 +117,35 @@ const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) =
     if (!post) {
         return (
             <div className="text-center py-12">
-                <h2 className="text-2xl font-bold text-academic-900">Post not found</h2>
-                <Link href="/blog" className="text-academic-accent hover:underline mt-4 inline-block">Back to Blog</Link>
+                <h2 className="text-2xl font-bold text-academic-900 dark:text-academic-100">Post not found</h2>
+                <Link href="/blog" className="text-academic-accent dark:text-blue-400 hover:underline mt-4 inline-block">Back to Blog</Link>
             </div>
         );
     }
 
     return (
         <div className={`animate-fadeIn mx-auto ${isHtml ? 'max-w-5xl w-full' : 'max-w-3xl'}`}>
-            <Link href="/blog" className="inline-flex items-center text-academic-500 hover:text-academic-accent transition-colors mb-8">
+            <Link href="/blog" className="inline-flex items-center text-academic-500 dark:text-academic-400 hover:text-academic-accent dark:hover:text-blue-400 transition-colors mb-8">
                 <ArrowLeft size={16} className="mr-2" aria-hidden="true" /> Back to Blog
             </Link>
 
-            <header className="mb-10 border-b border-academic-100 pb-8">
-                <div className="text-sm font-mono text-academic-400 mb-2">{post.date}</div>
-                <h1 className="text-3xl md:text-4xl font-serif font-bold text-academic-900 mb-4">{post.title}</h1>
-                <p className="text-lg text-academic-600 leading-relaxed italic">{post.summary}</p>
+            <header className="mb-10 border-b border-academic-100 dark:border-academic-700 pb-8">
+                <div className="text-sm font-mono text-academic-400 dark:text-academic-500 mb-2">{post.date}</div>
+                <h1 className="text-3xl md:text-4xl font-serif font-bold text-academic-900 dark:text-academic-100 mb-4">{post.title}</h1>
+                <p className="text-lg text-academic-600 dark:text-academic-300 leading-relaxed italic">{post.summary}</p>
             </header>
 
-            <article className={`prose prose-academic max-w-none text-academic-800 ${isHtml ? 'w-full' : ''}`}>
+            <article className={`prose prose-academic max-w-none text-academic-800 dark:text-academic-200 ${isHtml ? 'w-full' : ''}`}>
                 {loading ? (
                     <div className="space-y-4 animate-pulse">
-                        <div className="h-4 bg-academic-100 rounded w-3/4"></div>
-                        <div className="h-4 bg-academic-100 rounded w-full"></div>
-                        <div className="h-4 bg-academic-100 rounded w-5/6"></div>
+                        <div className="h-4 bg-academic-100 dark:bg-academic-700 rounded w-3/4"></div>
+                        <div className="h-4 bg-academic-100 dark:bg-academic-700 rounded w-full"></div>
+                        <div className="h-4 bg-academic-100 dark:bg-academic-700 rounded w-5/6"></div>
                     </div>
                 ) : error ? (
-                    <div className="text-center py-8 text-academic-700">
+                    <div className="text-center py-8 text-academic-700 dark:text-academic-300">
                         <p className="text-lg font-medium">Failed to load post</p>
-                        <p className="text-sm text-academic-500 mt-2">{error}</p>
+                        <p className="text-sm text-academic-500 dark:text-academic-400 mt-2">{error}</p>
                     </div>
                 ) : isHtml ? (
                     <iframe
@@ -161,23 +161,23 @@ const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) =
                         remarkPlugins={[remarkMath]}
                         rehypePlugins={[rehypeKatex]}
                         components={{
-                            h1: ({ children, ...props }) => <h2 className="text-2xl font-bold mt-8 mb-4 text-academic-900" {...props}>{children}</h2>,
-                            h2: ({ children, ...props }) => <h3 className="text-xl font-bold mt-6 mb-3 text-academic-900" {...props}>{children}</h3>,
-                            h3: ({ children, ...props }) => <h4 className="text-lg font-bold mt-4 mb-2 text-academic-900" {...props}>{children}</h4>,
+                            h1: ({ children, ...props }) => <h2 className="text-2xl font-bold mt-8 mb-4 text-academic-900 dark:text-academic-100" {...props}>{children}</h2>,
+                            h2: ({ children, ...props }) => <h3 className="text-xl font-bold mt-6 mb-3 text-academic-900 dark:text-academic-100" {...props}>{children}</h3>,
+                            h3: ({ children, ...props }) => <h4 className="text-lg font-bold mt-4 mb-2 text-academic-900 dark:text-academic-100" {...props}>{children}</h4>,
                             p: ({ children, ...props }) => <p className="mb-4 text-justify leading-relaxed" {...props}>{children}</p>,
                             ul: ({ children, ...props }) => <ul className="list-disc list-inside mb-4 space-y-1 pl-4" {...props}>{children}</ul>,
                             ol: ({ children, ...props }) => <ol className="list-decimal list-inside mb-4 space-y-1 pl-4" {...props}>{children}</ol>,
                             li: ({ children, ...props }) => <li className="pl-1" {...props}>{children}</li>,
-                            a: ({ children, ...props }) => <a className="text-academic-accent hover:underline font-medium" {...props}>{children}</a>,
-                            blockquote: ({ children, ...props }) => <blockquote className="border-l-4 border-academic-200 pl-4 italic text-academic-600 my-6" {...props}>{children}</blockquote>,
+                            a: ({ children, ...props }) => <a className="text-academic-accent dark:text-blue-400 hover:underline font-medium" {...props}>{children}</a>,
+                            blockquote: ({ children, ...props }) => <blockquote className="border-l-4 border-academic-200 dark:border-academic-600 pl-4 italic text-academic-600 dark:text-academic-400 my-6" {...props}>{children}</blockquote>,
                             code: ({ className, children, ...props }) => {
                                 const inline = !className;
                                 if (inline) {
-                                    return <code className="bg-academic-100 px-1.5 py-0.5 rounded text-sm font-mono text-academic-800" {...props}>{children}</code>;
+                                    return <code className="bg-academic-100 dark:bg-academic-700 px-1.5 py-0.5 rounded text-sm font-mono text-academic-800 dark:text-academic-200" {...props}>{children}</code>;
                                 }
-                                return <code className="block bg-academic-900 text-academic-50 p-4 rounded-lg overflow-x-auto text-sm font-mono my-6" {...props}>{children}</code>;
+                                return <code className="block bg-academic-900 dark:bg-black text-academic-50 p-4 rounded-lg overflow-x-auto text-sm font-mono my-6" {...props}>{children}</code>;
                             },
-                            img: ({ children, ...props }) => <img className="rounded-lg shadow-sm my-6 max-w-full h-auto border border-academic-100" {...props} />,
+                            img: ({ children, ...props }) => <img className="rounded-lg shadow-sm my-6 max-w-full h-auto border border-academic-100 dark:border-academic-700" {...props} />,
                         }}
                     >
                         {content}

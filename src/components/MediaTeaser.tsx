@@ -81,7 +81,7 @@ const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, aria
   return (
     <div ref={containerRef} className={className} aria-label={ariaLabel || alt} suppressHydrationWarning>
       {status === 'idle' || status === 'loading' ? (
-        <div className="w-full h-full bg-academic-100 animate-pulse rounded-lg border border-academic-100" />
+        <div className="w-full h-full bg-academic-100 dark:bg-academic-700 animate-pulse rounded-lg border border-academic-100 dark:border-academic-700" />
       ) : status === 'video' && videoSrc ? (
         <video
           ref={videoRef}
@@ -93,7 +93,7 @@ const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, aria
           preload="metadata"
           poster={imageSrc}
           aria-label={alt}
-          className="w-full h-full object-cover rounded-lg border border-academic-100 shadow-sm"
+          className="w-full h-full object-cover rounded-lg border border-academic-100 dark:border-academic-700 shadow-sm"
           onError={() => {
             if (imageSrc) setStatus('image');
             else setStatus('placeholder');
@@ -104,12 +104,12 @@ const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, aria
           src={imageSrc}
           alt={alt}
           loading="lazy"
-          className="w-full h-full object-cover rounded-lg border border-academic-100 shadow-sm"
+          className="w-full h-full object-cover rounded-lg border border-academic-100 dark:border-academic-700 shadow-sm"
           onError={() => setStatus('placeholder')}
         />
       ) : (
         <div
-          className="w-full h-full bg-academic-50 rounded-lg border border-academic-100 flex items-center justify-center text-academic-400 text-xs"
+          className="w-full h-full bg-academic-50 dark:bg-academic-800 rounded-lg border border-academic-100 dark:border-academic-700 flex items-center justify-center text-academic-400 dark:text-academic-500 text-xs"
           role="img"
           aria-label={`Missing teaser: ${alt}`}
         >

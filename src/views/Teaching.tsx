@@ -10,22 +10,22 @@ const Teaching: React.FC = () => {
 
       <div className="grid gap-6">
         {DATA.teaching.map((item) => (
-          <div key={item.id} className="bg-white border border-academic-200 rounded-lg p-6 hover:shadow-md transition-shadow">
+          <div key={item.id} className="bg-white dark:bg-academic-800 border border-academic-200 dark:border-academic-600 rounded-lg p-6 hover:shadow-md dark:shadow-black/20 transition-shadow">
             <div className="flex items-start gap-4">
-              <div className="p-3 bg-academic-50 rounded-full text-academic-600">
+              <div className="p-3 bg-academic-50 dark:bg-academic-700 rounded-full text-academic-600 dark:text-academic-400">
                 <BookOpen size={24} />
               </div>
               <div className="space-y-1">
-                <h3 className="text-lg font-bold text-academic-900">{item.course}</h3>
-                <div className="flex flex-wrap gap-y-1 gap-x-4 text-sm text-academic-500 font-medium uppercase tracking-wide">
+                <h3 className="text-lg font-bold text-academic-900 dark:text-academic-100">{item.course}</h3>
+                <div className="flex flex-wrap gap-y-1 gap-x-4 text-sm text-academic-500 dark:text-academic-400 font-medium uppercase tracking-wide">
                   <span>{item.institution}</span>
                   <span>&bull;</span>
                   <span>{item.period}</span>
                   <span>&bull;</span>
-                  <span className="text-academic-accent">{item.role}</span>
+                  <span className="text-academic-accent dark:text-blue-400">{item.role}</span>
                 </div>
                 {item.description && (
-                  <p className="text-academic-600 pt-2 leading-relaxed">
+                  <p className="text-academic-600 dark:text-academic-300 pt-2 leading-relaxed">
                     {item.description}
                   </p>
                 )}
