@@ -20,8 +20,8 @@ export const DATA: SiteData = {
     location: "Hong Kong, China",
     image: "/assets/self_photo.jpg", // Replace with your photo
     cv: "/assets/cv.pdf", // Place your cv.pdf in the assets folder
-    shortBio: "I am interested in machine learning, computer vision. My research focuses on improving the quality of dynamic scene recontruction.",
-    longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). My academic interests lie at the intersection of computer vision and deep learning, with a particular focus on 3D reconstruction, and neural rendering techniques such as NeRF and 3D Gaussian Splatting.
+    shortBio: "I am interested in machine learning, computer vision. My research focuses on improving the quality of scene reconstruction and visual content generation.",
+    longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). My academic interests include computer vision and deep learning, with a particular focus on the intersection of 3D reconstruction and visual content generation.
     `,
     socials: [
       { label: "Google Scholar", url: "https://scholar.google.com/citations?user=4H2KSRAAAAAJ&hl=en", icon: "scholar" },
