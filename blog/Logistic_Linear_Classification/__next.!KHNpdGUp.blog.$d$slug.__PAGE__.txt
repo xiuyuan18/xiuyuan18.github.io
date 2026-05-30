@@ -1,5 +1,5 @@
 1:"$Sreact.fragment"
-2:I[20077,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0tfnkkup_-77b.js","/_next/static/chunks/06wsaf2rbu6tu.js"],"default"]
+2:I[20077,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/0y3j5jnf8kr8c.js","/_next/static/chunks/06wsaf2rbu6tu.js"],"default"]
 7:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
 8:"$Sreact.suspense"
 :HL["/_next/static/chunks/145o.lsi86g0w.css","style"]
@@ -127,7 +127,7 @@ $$
 $$
 We set $J(\boldsymbol{W})=-\frac{1}{n}\log\mathcal{L}(\boldsymbol{W})$. Thus MLE is equivalent to minimize $J$. We also called $J$ the __Cross Entropy Loss__ for multi-class classification. Note that we divide the likelihood by $n$ to make it independent of the sample size. Thus it is a consistent reflection of the model's training error. As we can see here, if $\boldsymbol{y}$ is one-hot encoded, for each data sample, the loss is $-\log(\tilde{\boldsymbol{p}_{i}})$, where $i$ is the index of the ground-true label. This is consistent with the meaning of MLE, maximizing the probability of the correct label given the features and weight.
 
-In MLP or other deep learning models, we simply generalize $\boldsymbol{W}$ to all the parameters involved and logits $\boldsymbol{z}$ to the output of the last fully connected layer.0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"initialContent":"$3","slug":"Logistic_Linear_Classification"}],["$L4","$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"mmKK7iwvIUobUYJJg5oPa"}
+In MLP or other deep learning models, we simply generalize $\boldsymbol{W}$ to all the parameters involved and logits $\boldsymbol{z}$ to the output of the last fully connected layer.0:{"rsc":["$","$1","c",{"children":[["$","$L2",null,{"initialContent":"$3","slug":"Logistic_Linear_Classification"}],["$L4","$L5"],"$L6"]}],"isPartial":false,"staleTime":300,"varyParams":null,"buildId":"jAm_q9BFxX8Y68s4XPExK"}
 4:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/145o.lsi86g0w.css","precedence":"next"}]
 5:["$","script","script-0",{"src":"/_next/static/chunks/06wsaf2rbu6tu.js","async":true}]
 6:["$","$L7",null,{"children":["$","$8",null,{"name":"Next.MetadataOutlet","children":"$@9"}]}]
