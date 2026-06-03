@@ -20,7 +20,7 @@ export const DATA: SiteData = {
     location: "Hong Kong, China",
     image: "/assets/self_photo.jpg", // Replace with your photo
     cv: "/assets/cv.pdf", // Place your cv.pdf in the assets folder
-    shortBio: "I am interested in machine learning, computer vision. My research focuses on improving the quality of scene reconstruction and visual content generation.",
+    shortBio: "I am interested in machine learning, computer vision. My research focuses on improving the quality of scene reconstruction and 3D-awared visual content generation.",
     longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). My academic interests include computer vision and deep learning, with a particular focus on the intersection of 3D reconstruction and visual content generation.
     `,
     socials: [
@@ -33,7 +33,7 @@ export const DATA: SiteData = {
     ]
   },
   news: [
-    { id: "n1", date: "Nov 2025", content: "Applying for Graduate School." },
+    { id: "n1", date: "Jun 2026", content: "Applying for Graduate School." },
   ],
   publications: [
     {
