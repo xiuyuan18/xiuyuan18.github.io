@@ -1,147 +1,24 @@
 1:"$Sreact.fragment"
-2:I[39756,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
-3:I[37457,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default"]
-4:I[45678,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/110yx5bwqt~v1.js"],"default"]
-6:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"OutletBoundary"]
-7:"$Sreact.suspense"
-a:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"ViewportBoundary"]
-d:I[68027,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"default",1]
-:HL["/_next/static/chunks/0k1fd4w0v5~mz.css","style"]
+2:I[39756,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+3:I[37457,["/_next/static/chunks/3fntmmi971322.js"],"default"]
+4:I[45678,["/_next/static/chunks/3fntmmi971322.js","/_next/static/chunks/194wrg66y19yr.js"],"default"]
+a:I[68027,["/_next/static/chunks/3fntmmi971322.js"],"default",1]
+:HL["/_next/static/chunks/01xpgs_3l55gi.css","style"]
 :HC["/",""]
-:HL["/_next/static/chunks/145o.lsi86g0w.css","style"]
-0:{"P":null,"c":["","blog","Logistic_Linear_Classification"],"q":"","i":false,"f":[[["",{"children":["(site)",{"children":["blog",{"children":[["slug","Logistic_Linear_Classification","d",null],{"children":["__PAGE__",{}]}]}]}]},"$undefined","$undefined",16],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0k1fd4w0v5~mz.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/01xlw8hd842-c.js","async":true,"nonce":"$undefined"}],["$","script","script-1",{"src":"/_next/static/chunks/0d3shmwh5_nmn.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","children":["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]}]]}],{"children":[["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/110yx5bwqt~v1.js","async":true,"nonce":"$undefined"}]],["$","div",null,{"className":"min-h-screen flex flex-col bg-white dark:bg-academic-900","children":[["$","$L4",null,{}],["$","main",null,{"className":"grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$0:f:0:1:0:props:children:1:props:children:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"bg-white dark:bg-academic-900 mt-12 py-8 border-t border-academic-100 dark:border-academic-700","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 text-center space-y-1","children":[["$","p",null,{"className":"text-academic-500 dark:text-academic-400 text-sm","children":["© ",2026," ","Xiuyuan Yu"]}],["$","p",null,{"className":"text-academic-400 dark:text-academic-500 text-xs","children":["Last updated: ","June 2026"]}]]}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":[["$","$1","c",{"children":["$L5",[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/145o.lsi86g0w.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/06wsaf2rbu6tu.js","async":true,"nonce":"$undefined"}]],["$","$L6",null,{"children":["$","$7",null,{"name":"Next.MetadataOutlet","children":"$@8"}]}]]}],{},null,false,null]},null,false,"$@9"]},null,false,"$@9"]},null,false,null]},null,false,null],["$","$1","h",{"children":[null,["$","$La",null,{"children":"$Lb"}],["$","div",null,{"hidden":true,"children":"$Lc"}],null]}],false]],"m":"$undefined","G":["$d",["$Le"]],"S":true,"h":null,"s":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"SqeD6DeZVQaRQR7AqH1Ny"}
-10:I[97367,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"MetadataBoundary"]
-f:[]
-9:"$Wf"
-c:["$","$L10",null,{"children":["$","$7",null,{"name":"Next.Metadata","children":"$L11"}]}]
-e:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/0k1fd4w0v5~mz.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
-12:I[20077,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js","/_next/static/chunks/110yx5bwqt~v1.js","/_next/static/chunks/06wsaf2rbu6tu.js"],"default"]
-13:T24f3,## Why "regression"?
-It is a classification problem, but the name of the algorithm is "regression". So, what are we regress? Why turn the classification problem into a regression problem?
-
-Suppose that our data live in $\mathbb{R}^d$, the goal of linear classification is to find a line (lines) that separate different classes. To achieve this, the common approach of various linear classifiers is assign a score $\boldsymbol{w^Tx}+b$ for all the data point $\boldsymbol{x} \in \mathbb{R^d}$ and use regression to find the weights $\boldsymbol{w}$ and $b$. Then the line $\boldsymbol{w^Tx}+b=0$ is the separation criteria.
-
-As a special case, for binary classification, we want the score to be positive for one class and negative for the other. Now the question is turned into how to perform regression. We only have a two value label instead of the continuous label in the regression problem. What should be our score?
-## What we perform regression on?
-The idea of Linear Logistic Regression is to use "a form of probability" as the score. So what is "a form of probability"? The idea is a little confusing. Let us look at it by parts.
-
-First, why probability? It is a kind of method to make discrete class label continuous. We can't regress on the class label, but we can perform regression on the probability of a data point belonging to a class. For example, given the wage of a worker $x$, determine whether he owns a car or not. The label is discrete. But how about we turn the label into the probability of he owns a car given the wage $x$. That is $\text{Prob}(\text{owns a car}\,|\,x)$. Great! Now the label is continuous. The goal of our model is know to predict this probability.
-
-However, the range of probability, which is $[0, 1]$, doesn't match with the range of $\boldsymbol{w^Tx}+b$. This is where the Logistic function comes out. We have
-$$
-\begin{equation}
-\sigma(x)=\frac1{1+e^{-x}}.
-\end{equation}
-$$
-This function map $\mathbb{R}$ to $(0, 1)$. Thus our model becomes
-$$
-\begin{equation}
-\hat{p}=\sigma(\boldsymbol{w^Tx}+b).
-\end{equation}
-$$
-Where $\hat{p}$ is our label of probability. Or to be more formal,
-$$
-\begin{equation*}
-P(y=1\,|\,\boldsymbol{x};\boldsymbol{w},b)= \sigma(\boldsymbol{w^Tx}+b). \tag{*}
-\end{equation*}
-$$
-Now, we can account for "a form of". We let $z=\boldsymbol{w^Tx}+b$ to denote the score. Then, we transform the Equation (2) to get,
-$$
-\begin{align*}
-	\hat{p} &= \sigma(\boldsymbol{w^Tx}+b) \\
-	&= \frac1{1+e^{-z}} \\
-	1-\hat{p} &= 1 - \sigma(\boldsymbol{w^Tx}+b) \\
-	&= \frac1{1+e^{z}}. \\
-\end{align*}
-$$
-Note that $\frac {\hat{p}}{1-\hat{p}}=e^z$. Thus we have,
-$$
-\begin{equation}
-\ln\left(\frac {\hat{p}} {1-\hat{p}}\right)=z=\boldsymbol{w^\top x}+b.
-\end{equation}
-$$
-According to Equation (3), we know that the score is actually is "Log-Odd". That is "a form of probability". This make sense. In binary classification, if $\hat{p}>0.5$, we consider it is in the right class, and that correspond to score greater than 0. 
-## How to perform "regression"?
-Our model is now Equation (2), or alternatively Equation (3). It is good, but there is an annoying problem. We don't have the ground truth label for $p$! What we have is the class for feature $x$. How can we use the regression algorithm if we don't have the labels?
-
-Let's look at our model carefully. The output of Equation (2) is a probability. So our model is predicting a conditional probability distribution. We can write our model as $\phi_{\boldsymbol{w}, b}(\{\boldsymbol{x}, y\})$. The formula of our model can be obtain from Equation (\*) by also considering the case that $y=0$. Thus, we have,
-$$
-\begin{equation}
-P(y\,|\,\boldsymbol{x};\boldsymbol{w}, b)=\phi_{\boldsymbol{w}, b}(\boldsymbol{x}, y)=(\hat{p})^{y}(1-\hat{p})^{1-y}.
-\end{equation}
-$$
-At this point, we can finally use MLE to solve for the parameters. Assume our dataset is $\{(\boldsymbol{x_1}, y_1),(\boldsymbol{x_2}, y_2),\dots,(\boldsymbol{x_n}, y_n)\}$. Therefore, the likelihood is
-$$
-\begin{align}
-\mathcal{L}(\boldsymbol{w}, b)&=\prod_{i=1}^nP(y_i\,|\,\boldsymbol{x}_i;\boldsymbol{w}, b) \\
-\Rightarrow \ln(\mathcal{L}(\boldsymbol{w}, b))&= \sum_{i=1}^{n}\ln((\hat{p}_i)^{y_i}(1-\hat{p}_i)^{1-y_i}) \\
-&= \sum_{i=1}^{n}\left[y_i\ln(\hat p_i)+(1-y_i)\ln(1-\hat p_i)\right].
-\end{align}
-$$
-Our problem is now __maximize__ $\ln(\mathcal{L}(\boldsymbol{w}, b))$. To align with the common notation in machine learning, we let $J(\boldsymbol{w}, b)=-\ln(\mathcal{L}(\boldsymbol{w}, b))$. Thus, $J(\boldsymbol{w}, b)$ is our loss function, which has a famous name "__Cross-Entropy Loss__". We can now use various optimization methods, such as gradient decent, to solve for $\boldsymbol{w}$ and $b$.
-## A few insights
-We first transform the classification problem into a regression problem that we familiar with by introducing the concept of score. The general idea of score is we assign positive score to target class and negative score for others. Then we use linear regression to fit a model to the score, and the line of zero score will be our separation border.
-
-Thus, the new problem is how to define a meaningful score for the data. The logistic regression use logistic function to transform the probability of data into score, therefore further transform the problem into optimizing a probability model. Then, it is our old friend MLE.
-
-The most important and crucial point in LLR is the transformation form a regression problem of score to a MLE problem for a probability model. So the name of LLR is misleading. If we don't need to account for the "regression" in its name, **_we can deem it as a problem of predicting the probability that a sample belongs to positive class._** Then inversely construct the probability from the data.
-## Relation to multi-class classification
-In binary classification, our model generates $z=\boldsymbol{w^\top x}+b$ and $\hat{p}=\sigma (z)$. We interpret $z$ as the score for the positive class. Now, in multi-class scenario, we don't have a "positive" class. All class can be seen as "positive". Thus, we now either train a set of  "one-to-one" classifiers for each pair of the class, or train a "one-to-rest" classifier for each class. That is what SVM in sklearn does.
-
-However, in modern deep neural networks, things don't work like this. Instead, we have a model that give a score to each class. Therefore, the "raw" output generated by our model becomes
-$$
-\begin{equation}
-z_{i} = \boldsymbol{w_{i}^\top x}+b_{i}.
-\end{equation}
-$$
-Where each $i$ corresponds to one class. If we have $k$ classes in total, we can merge the bias into the weight by letting $\tilde{\boldsymbol{x}}=[\boldsymbol{x};1]$ and combine the components into a matrix representation:
-$$
-\begin{equation}
-\boldsymbol{z}=\boldsymbol{W \tilde x}.
-\end{equation}
-$$
-Here, $\boldsymbol{z} \in \mathbb{R}^k,\,\boldsymbol{W}\in \mathbb{R}^{k\times (f+1)},\,\boldsymbol{\tilde x} \in \mathbb{R}^{f+1}$, where $n$ is the number of classes and $f$ is number of the features. We give a name to our new $z$. We call it **logits** instead of score in binary case.
-
-The next step is to get our probability from the logits we get. In binary case, we use sigmoid (logistic) function. Remember that the purpose of the function is to normalize the score to $[0,1]$. In another word, we need a function that map the logits to a probability distribution. The common approach is softmax function:
-$$
-\begin{align}
-\mathrm{Softmax}: \mathbb{R}^n &\to \mathbb{R}^n \\
-\begin{pmatrix}
-z_{1} \\
-z_{2} \\
-\vdots \\
-z_{n}
-\end{pmatrix}&\mapsto \begin{pmatrix}
-\frac{\exp(z_{1})}{\sum_{i=1}^n\exp(z_{i})} \\
-\frac{\exp(z_{2})}{\sum_{i=1}^n\exp(z_{i})} \\
-\vdots \\
-\frac{\exp(z_{n})}{\sum_{i=1}^n\exp(z_{i})} \\
-\end{pmatrix}.
-\end{align}
-$$
-Note that all the components of the image sum up to $1$. Using our softmax function, we have a multi-class version of Equation (2):
-$$
-\begin{equation}
-\boldsymbol{\tilde{p}}=\mathrm{Softmax}(\boldsymbol{z})=\mathrm{Softmax}(\boldsymbol{W \tilde{x}}).
-\end{equation}
-$$
-Thus, Equation (4) becomes
-$$
-\begin{equation}
-P\left(\boldsymbol{y}\mid \boldsymbol{x};\boldsymbol{W}\right)=\prod_{i=1}^{k}\boldsymbol{\tilde {p}}_{i}^{\boldsymbol{y}_{i}}.
-\end{equation}
-$$
-Here, $\boldsymbol{y}$ is one-hot encoded. To find the best $\boldsymbol{W}$, we use MLE estimation on the same dataset assumption to get
-$$
-\begin{align}
-\mathcal{L}(\boldsymbol{W})&=\prod_{j=1}^{n}\prod_{i=1}^{k}\left(\tilde{\boldsymbol{p}}_{i}^{(j)}\right)^{\boldsymbol{y}_{i}^{(j)}} \\
-\implies \log \mathcal{L}(\boldsymbol{W})&=\sum_{j=1}^{n}\sum_{i=1}^{k}{\boldsymbol{y}_{i}^{(j)}}\log(\tilde{\boldsymbol{p}}_{i}^{(j)}).
-\end{align}
-$$
-We set $J(\boldsymbol{W})=-\frac{1}{n}\log\mathcal{L}(\boldsymbol{W})$. Thus MLE is equivalent to minimize $J$. We also called $J$ the __Cross Entropy Loss__ for multi-class classification. Note that we divide the likelihood by $n$ to make it independent of the sample size. Thus it is a consistent reflection of the model's training error. As we can see here, if $\boldsymbol{y}$ is one-hot encoded, for each data sample, the loss is $-\log(\tilde{\boldsymbol{p}_{i}})$, where $i$ is the index of the ground-true label. This is consistent with the meaning of MLE, maximizing the probability of the correct label given the features and weight.
-
-In MLP or other deep learning models, we simply generalize $\boldsymbol{W}$ to all the parameters involved and logits $\boldsymbol{z}$ to the output of the last fully connected layer.5:["$","$L12",null,{"initialContent":"$13","slug":"Logistic_Linear_Classification"}]
-b:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
-14:I[27201,["/_next/static/chunks/01xlw8hd842-c.js","/_next/static/chunks/0d3shmwh5_nmn.js"],"IconMark"]
-8:null
-11:[["$","title","0",{"children":"Academic Homepage"}],["$","meta","1",{"name":"description","content":"Generated by create next app"}],["$","link","2",{"rel":"icon","href":"/assets/ph_icon.svg"}],["$","$L14","3",{}]]
+8:X
+0:{"P":null,"c":["","blog","Logistic_Linear_Classification"],"q":"","i":false,"f":[[["",{"children":["(site)",{"children":["blog",{"children":[["slug","Logistic_Linear_Classification","d",[]],{"children":["__PAGE__",{},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4608]},"$undefined","$undefined",4624],[["$","$1","c",{"children":[[["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/01xpgs_3l55gi.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}],["$","script","script-0",{"src":"/_next/static/chunks/3fntmmi971322.js","async":true,"nonce":"$undefined"}]],["$","html",null,{"lang":"en","suppressHydrationWarning":true,"children":[["$","head",null,{"children":["$","script",null,{"dangerouslySetInnerHTML":{"__html":"\n    (() => {\n        try {\n            const stored = localStorage.getItem('theme');\n            const dark = stored === 'dark' || (!stored && matchMedia('(prefers-color-scheme: dark)').matches);\n            document.documentElement.classList.toggle('dark', dark);\n        } catch (_) {}\n    })();\n"}}]}],["$","body",null,{"children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":{"fontFamily":"system-ui,\"Segoe UI\",Roboto,Helvetica,Arial,sans-serif,\"Apple Color Emoji\",\"Segoe UI Emoji\"","height":"100vh","textAlign":"center","display":"flex","flexDirection":"column","alignItems":"center","justifyContent":"center"},"children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":{"display":"inline-block","margin":"0 20px 0 0","padding":"0 23px 0 0","fontSize":24,"fontWeight":500,"verticalAlign":"top","lineHeight":"49px"},"children":404}],["$","div",null,{"style":{"display":"inline-block"},"children":["$","h2",null,{"style":{"fontSize":14,"fontWeight":400,"lineHeight":"49px","margin":0},"children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}]]}]]}],{"children":[["$","$1","c",{"children":[[["$","script","script-0",{"src":"/_next/static/chunks/194wrg66y19yr.js","async":true,"nonce":"$undefined"}]],["$","div",null,{"className":"min-h-screen flex flex-col bg-white dark:bg-academic-900","children":[["$","a",null,{"href":"#main-content","className":"fixed left-4 top-2 z-[100] -translate-y-16 rounded-md bg-academic-900 px-4 py-2 text-white transition-transform focus:translate-y-0 dark:bg-white dark:text-academic-900","children":"Skip to content"}],["$","$L4",null,{}],["$","main",null,{"id":"main-content","tabIndex":-1,"className":"grow max-w-4xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 md:py-12","children":["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":[[["$","title",null,{"children":"404: This page could not be found."}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:notFound:0:1:props:style","children":["$","div",null,{"children":[["$","style",null,{"dangerouslySetInnerHTML":{"__html":"body{color:#000;background:#fff;margin:0}.next-error-h1{border-right:1px solid rgba(0,0,0,.3)}@media (prefers-color-scheme:dark){body{color:#fff;background:#000}.next-error-h1{border-right:1px solid rgba(255,255,255,.3)}}"}}],["$","h1",null,{"className":"next-error-h1","style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:notFound:0:1:props:children:props:children:1:props:style","children":404}],["$","div",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:notFound:0:1:props:children:props:children:2:props:style","children":["$","h2",null,{"style":"$0:f:0:1:0:props:children:1:props:children:1:props:children:props:notFound:0:1:props:children:props:children:2:props:children:props:style","children":"This page could not be found."}]}]]}]}]],[]],"forbidden":"$undefined","unauthorized":"$undefined"}]}],["$","footer",null,{"className":"bg-white dark:bg-academic-900 mt-12 py-8 border-t border-academic-100 dark:border-academic-700","children":["$","div",null,{"className":"max-w-4xl mx-auto px-4 text-center space-y-1","children":[["$","p",null,{"className":"text-academic-500 dark:text-academic-400 text-sm","children":["© ",2026," ","Xiuyuan Yu"]}],["$","p",null,{"className":"text-academic-400 dark:text-academic-500 text-xs","children":["Last updated: ","August 2026"]}]]}]}]]}]]}],{"children":[["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":"$L5","templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}],{"children":["$L6",{"children":["$L7",{},null,false,null]},null,false,"$8"]},null,false,"$8"]},null,false,null]},null,false,null],"$L9",false]],"m":"$undefined","G":["$a",["$Lb"]],"S":true,"h":null,"r":"$undefined","s":"$undefined","a":"$undefined","l":"$undefined","p":"$undefined","d":"$undefined","b":"wodJT_JJlh5EfDHPF894Y"}
+d:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"OutletBoundary"]
+e:"$Sreact.suspense"
+10:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"ViewportBoundary"]
+12:I[97367,["/_next/static/chunks/3fntmmi971322.js"],"MetadataBoundary"]
+5:["$","$L3",null,{}]
+6:["$","$1","c",{"children":[null,["$","$L2",null,{"parallelRouterKey":"children","error":"$undefined","errorStyles":"$undefined","errorScripts":"$undefined","template":["$","$L3",null,{}],"templateStyles":"$undefined","templateScripts":"$undefined","notFound":"$undefined","forbidden":"$undefined","unauthorized":"$undefined"}]]}]
+7:["$","$1","c",{"children":["$Lc",[["$","script","script-0",{"src":"/_next/static/chunks/2dymtoxqkfcy1.js","async":true,"nonce":"$undefined"}]],["$","$Ld",null,{"children":["$","$e",null,{"name":"Next.MetadataOutlet","children":"$@f"}]}]]}]
+9:["$","$1","h",{"children":[null,["$","$L10",null,{"children":"$L11"}],["$","div",null,{"hidden":true,"children":["$","$L12",null,{"children":["$","$e",null,{"name":"Next.Metadata","children":"$L13"}]}]}],null]}]
+b:["$","link","0",{"rel":"stylesheet","href":"/_next/static/chunks/01xpgs_3l55gi.css","precedence":"next","crossOrigin":"$undefined","nonce":"$undefined"}]
+8:C
+c:E{"digest":"NEXT_HTTP_ERROR_FALLBACK;404"}
+11:[["$","meta","0",{"charSet":"utf-8"}],["$","meta","1",{"name":"viewport","content":"width=device-width, initial-scale=1"}]]
+14:I[27201,["/_next/static/chunks/3fntmmi971322.js"],"IconMark"]
+f:null
+13:[["$","title","0",{"children":"Xiuyuan Yu | Computer Vision Research"}],["$","meta","1",{"name":"description","content":"I am interested in machine learning and computer vision, especially high-quality scene reconstruction and 3D-aware visual content generation."}],["$","link","2",{"rel":"author","href":"https://xiuyuan18.github.io/"}],["$","meta","3",{"name":"author","content":"Xiuyuan Yu"}],["$","meta","4",{"name":"keywords","content":"computer vision,machine learning,3D reconstruction,4D reconstruction"}],["$","meta","5",{"name":"creator","content":"Xiuyuan Yu"}],["$","meta","6",{"name":"robots","content":"noindex, nofollow"}],["$","meta","7",{"property":"og:title","content":"Xiuyuan Yu | Computer Vision Research"}],["$","meta","8",{"property":"og:description","content":"I am interested in machine learning and computer vision, especially high-quality scene reconstruction and 3D-aware visual content generation."}],["$","meta","9",{"property":"og:url","content":"https://xiuyuan18.github.io"}],["$","meta","10",{"property":"og:site_name","content":"Xiuyuan Yu — Academic Homepage"}],["$","meta","11",{"property":"og:image","content":"https://xiuyuan18.github.io/assets/self_photo.webp"}],["$","meta","12",{"property":"og:image:width","content":"512"}],["$","meta","13",{"property":"og:image:height","content":"512"}],["$","meta","14",{"property":"og:image:alt","content":"Xiuyuan Yu"}],["$","meta","15",{"property":"og:type","content":"website"}],["$","meta","16",{"name":"twitter:card","content":"summary"}],["$","meta","17",{"name":"twitter:title","content":"Xiuyuan Yu | Computer Vision Research"}],["$","meta","18",{"name":"twitter:description","content":"I am interested in machine learning and computer vision, especially high-quality scene reconstruction and 3D-aware visual content generation."}],["$","meta","19",{"name":"twitter:image","content":"https://xiuyuan18.github.io/assets/self_photo.webp"}],["$","link","20",{"rel":"icon","href":"/assets/ph_icon.svg"}],["$","$L14","21",{}]]

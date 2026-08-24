@@ -1,4 +1,3 @@
-:HL["/_next/static/chunks/0k1fd4w0v5~mz.css","style"]
+:HL["/_next/static/chunks/01xpgs_3l55gi.css","style"]
 :HC["/",""]
-:HL["/_next/static/chunks/145o.lsi86g0w.css","style"]
-0:{"tree":{"name":"","param":null,"prefetchHints":16,"slots":{"children":{"name":"(site)","param":null,"prefetchHints":0,"slots":{"children":{"name":"blog","param":null,"prefetchHints":0,"slots":{"children":{"name":"slug","param":{"type":"d","key":"Logistic_Linear_Classification","siblings":null},"prefetchHints":0,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":0,"slots":null}}}}}}}}},"staleTime":300,"buildId":"SqeD6DeZVQaRQR7AqH1Ny"}
+0:{"tree":{"name":"","param":null,"prefetchHints":4176,"slots":{"children":{"name":"(site)","param":null,"prefetchHints":4192,"slots":{"children":{"name":"blog","param":null,"prefetchHints":4192,"slots":{"children":{"name":"slug","param":{"type":"d","key":"Logistic_Linear_Classification","siblings":[]},"prefetchHints":4192,"slots":{"children":{"name":"__PAGE__","param":null,"prefetchHints":4256,"slots":null}}}}}}}}},"staleTime":300,"buildId":"wodJT_JJlh5EfDHPF894Y"}

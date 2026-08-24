@@ -1,4 +1,5 @@
-User-agent: *
+User-Agent: *
 Allow: /
-Sitemap: https://xiuyuan18.github.io/sitemap.xml
 
+Host: https://xiuyuan18.github.io
+Sitemap: https://xiuyuan18.github.io/sitemap.xml
