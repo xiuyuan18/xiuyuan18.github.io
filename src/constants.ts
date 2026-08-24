@@ -1,5 +1,5 @@
 
-import { SiteData } from './types';
+import type { SiteData } from './types';
 
 // =============================================================================
 // CONFIGURATION: EDIT THIS FILE TO CUSTOMIZE YOUR WEBSITE
@@ -18,9 +18,9 @@ export const DATA: SiteData = {
     affiliation: "The Chinese University of Hong Kong",
     email: "xyyu@link.cuhk.edu.hk",
     location: "Hong Kong, China",
-    image: "/assets/self_photo.jpg", // Replace with your photo
+    image: "/assets/self_photo.webp", // Replace with your photo
     cv: "/assets/cv.pdf", // Place your cv.pdf in the assets folder
-    shortBio: "I am interested in machine learning, computer vision. My research focuses on improving the quality of scene reconstruction and 3D-awared visual content generation.",
+    shortBio: "I am interested in machine learning and computer vision, especially high-quality scene reconstruction and 3D-aware visual content generation.",
     longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). My academic interests include computer vision and deep learning, with a particular focus on the intersection of 3D reconstruction and visual content generation.
     `,
     socials: [
@@ -53,23 +53,7 @@ export const DATA: SiteData = {
       ]
     },
   ],
-  teaching: [
-    {
-      id: "t1",
-      course: "CS101: Intro to Machine Learning",
-      role: "Instructor",
-      institution: "Univ. Tech & Science",
-      period: "Fall 2024",
-      description: "Undergraduate level introduction to ML concepts."
-    },
-    {
-      id: "t2",
-      course: "CS231n: Convolutional Neural Networks",
-      role: "Guest Lecturer",
-      institution: "Ivy University",
-      period: "Spring 2023"
-    }
-  ],
+  teaching: [],
   awards: [
     { id: "a1", title: "Silver Award for Outstanding Academic Performance", awarder: "Department", date: "2025" },
     { id: "a2", title: "Dean's List", awarder: "Faculty of Engineering", date: "2024, 2025" },
@@ -86,9 +70,9 @@ export const DATA: SiteData = {
     },
     {
       id: "b2",
-      title: "How to Write a Rebuttal",
+      title: "Notes on Power Series",
       date: "July 2024",
-      summary: "A guide for PhD students on navigating the conference rebuttal process effectively.",
+      summary: "A computational notebook exploring power-series expansions and a fifth-order approximation of the solution.",
       slug: "power_series",
       format: "html",
     }

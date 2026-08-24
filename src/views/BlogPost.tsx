@@ -1,127 +1,20 @@
-'use client';
-import React, { useEffect, useState, useRef } from 'react';
 import Link from 'next/link';
-import { useParams } from 'next/navigation';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
-import 'katex/dist/katex.min.css';
-import { DATA } from '@/src/constants';
 import { ArrowLeft } from 'lucide-react';
+import HtmlPostFrame from '@/src/components/HtmlPostFrame';
+import type { BlogPost as BlogPostData } from '@/src/types';
+
+/* eslint-disable @next/next/no-img-element -- Markdown images have author-defined URLs and dimensions. */
 
 interface BlogPostProps {
-    initialContent?: string;
-    slug?: string;
+    post: BlogPostData;
+    content?: string;
 }
 
-function getSlug(params: ReturnType<typeof useParams>, propSlug?: string): string {
-    if (propSlug) return propSlug;
-    const raw = params?.slug;
-    if (!raw) return '';
-    const rawSlug = Array.isArray(raw) ? raw[0] : raw;
-    return decodeURIComponent(rawSlug);
-}
-
-const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) => {
-    const params = useParams();
-    const slug = getSlug(params, propSlug);
-
-    const [content, setContent] = useState(initialContent || '');
-    const [loading, setLoading] = useState(!initialContent);
-    const [error, setError] = useState<string | null>(null);
-    const iframeRef = useRef<HTMLIFrameElement>(null);
-
-    const post = DATA.blog.find(p => p.slug === slug);
-    const isHtml = post?.format === 'html';
-
-    const publicBase = process.env.NEXT_PUBLIC_BASE_PATH || '';
-    const baseUrl = publicBase.endsWith('/') ? publicBase : `${publicBase}/`;
-
-    useEffect(() => {
-        if (initialContent || content) {
-            setLoading(false);
-            return;
-        }
-
-        if (!post) return;
-
-        if (isHtml) {
-            setLoading(false);
-            return;
-        }
-
-        setLoading(true);
-        const filePath = `${baseUrl}assets/posts/${post.slug}.md`;
-
-        fetch(filePath)
-            .then(res => {
-                if (!res.ok) throw new Error(`Failed to load post: ${res.status} ${res.statusText}`);
-                return res.text();
-            })
-            .then(text => {
-                if (text.includes('<div id="root">') && text.includes('<!DOCTYPE html>')) {
-                    throw new Error('File not found (received SPA index.html)');
-                }
-                setContent(text);
-                setLoading(false);
-            })
-            .catch(err => {
-                console.error(err);
-                setError(err instanceof Error ? err.message : 'Failed to load post');
-                setLoading(false);
-            });
-    }, [post, isHtml, baseUrl, initialContent, content]);
-
-    const handleIframeLoad = () => {
-        const iframe = iframeRef.current;
-        if (!iframe?.contentWindow) return;
-
-        try {
-            const doc = iframe.contentWindow.document;
-            const style = doc.createElement('style');
-            style.textContent = `
-                body {
-                    font-family: 'Inter', sans-serif;
-                    margin: 0;
-                    padding: 0;
-                    overflow-y: hidden;
-                    background-color: transparent;
-                }
-                .container { width: 100% !important; max-width: 100% !important; padding-left: 0 !important; padding-right: 0 !important; }
-                .jp-Notebook { margin: 0 !important; padding: 0 !important; }
-                .jp-Cell { padding-left: 0 !important; padding-right: 0 !important; }
-            `;
-            doc.head.appendChild(style);
-
-            const updateHeight = () => {
-                if (iframe.contentWindow) {
-                    iframe.style.height = `${iframe.contentWindow.document.documentElement.scrollHeight}px`;
-                }
-            };
-
-            updateHeight();
-
-            if (typeof ResizeObserver !== 'undefined') {
-                const observer = new ResizeObserver(updateHeight);
-                observer.observe(doc.body);
-            }
-
-            setTimeout(updateHeight, 500);
-            setTimeout(updateHeight, 1500);
-            setTimeout(updateHeight, 3000);
-        } catch (e) {
-            console.warn("Could not access iframe content for resizing (likely CORS).");
-        }
-    };
-
-    if (!post) {
-        return (
-            <div className="text-center py-12">
-                <h2 className="text-2xl font-bold text-academic-900 dark:text-academic-100">Post not found</h2>
-                <Link href="/blog" className="text-academic-accent dark:text-blue-400 hover:underline mt-4 inline-block">Back to Blog</Link>
-            </div>
-        );
-    }
+export default function BlogPost({ post, content = '' }: BlogPostProps) {
+    const isHtml = post.format === 'html';
 
     return (
         <div className={`animate-fadeIn mx-auto ${isHtml ? 'max-w-5xl w-full' : 'max-w-3xl'}`}>
@@ -136,26 +29,8 @@ const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) =
             </header>
 
             <article className={`prose prose-academic max-w-none text-academic-800 dark:text-academic-200 ${isHtml ? 'w-full' : ''}`}>
-                {loading ? (
-                    <div className="space-y-4 animate-pulse">
-                        <div className="h-4 bg-academic-100 dark:bg-academic-700 rounded w-3/4"></div>
-                        <div className="h-4 bg-academic-100 dark:bg-academic-700 rounded w-full"></div>
-                        <div className="h-4 bg-academic-100 dark:bg-academic-700 rounded w-5/6"></div>
-                    </div>
-                ) : error ? (
-                    <div className="text-center py-8 text-academic-700 dark:text-academic-300">
-                        <p className="text-lg font-medium">Failed to load post</p>
-                        <p className="text-sm text-academic-500 dark:text-academic-400 mt-2">{error}</p>
-                    </div>
-                ) : isHtml ? (
-                    <iframe
-                        ref={iframeRef}
-                        src={`${baseUrl}assets/posts/${post.slug}.html`}
-                        className="w-full border-none overflow-hidden block"
-                        style={{ minHeight: '500px' }}
-                        title={post.title}
-                        onLoad={handleIframeLoad}
-                    />
+                {isHtml ? (
+                    <HtmlPostFrame slug={post.slug} title={post.title} />
                 ) : (
                     <ReactMarkdown
                         remarkPlugins={[remarkMath]}
@@ -170,14 +45,13 @@ const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) =
                             li: ({ children, ...props }) => <li className="pl-1" {...props}>{children}</li>,
                             a: ({ children, ...props }) => <a className="text-academic-accent dark:text-blue-400 hover:underline font-medium" {...props}>{children}</a>,
                             blockquote: ({ children, ...props }) => <blockquote className="border-l-4 border-academic-200 dark:border-academic-600 pl-4 italic text-academic-600 dark:text-academic-400 my-6" {...props}>{children}</blockquote>,
-                            code: ({ className, children, ...props }) => {
-                                const inline = !className;
-                                if (inline) {
-                                    return <code className="bg-academic-100 dark:bg-academic-700 px-1.5 py-0.5 rounded text-sm font-mono text-academic-800 dark:text-academic-200" {...props}>{children}</code>;
-                                }
-                                return <code className="block bg-academic-900 dark:bg-black text-academic-50 p-4 rounded-lg overflow-x-auto text-sm font-mono my-6" {...props}>{children}</code>;
-                            },
-                            img: ({ children, ...props }) => <img className="rounded-lg shadow-sm my-6 max-w-full h-auto border border-academic-100 dark:border-academic-700" {...props} />,
+                            pre: ({ children, ...props }) => <pre className="bg-academic-900 dark:bg-black text-academic-50 p-4 rounded-lg overflow-x-auto text-sm font-mono my-6" {...props}>{children}</pre>,
+                            code: ({ className, children, ...props }) => className ? (
+                                <code className={className} {...props}>{children}</code>
+                            ) : (
+                                <code className="bg-academic-100 dark:bg-academic-700 px-1.5 py-0.5 rounded text-sm font-mono text-academic-800 dark:text-academic-200" {...props}>{children}</code>
+                            ),
+                            img: ({ alt, ...props }) => <img alt={alt ?? ''} className="rounded-lg shadow-sm my-6 max-w-full h-auto border border-academic-100 dark:border-academic-700" loading="lazy" {...props} />,
                         }}
                     >
                         {content}
@@ -186,6 +60,4 @@ const BlogPost: React.FC<BlogPostProps> = ({ initialContent, slug: propSlug }) =
             </article>
         </div>
     );
-};
-
-export default BlogPost;
+}

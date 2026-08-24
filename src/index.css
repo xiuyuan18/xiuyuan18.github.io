@@ -1,8 +1,33 @@
 @import 'tailwindcss';
+@import 'katex/dist/katex.min.css';
 
 @config "../tailwind.config.js";
 
 @custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+    color-scheme: light;
+}
+
+:root.dark {
+    color-scheme: dark;
+}
+
+:focus-visible {
+    outline: 2px solid #0284c7;
+    outline-offset: 3px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
 
 /* Inter latin-ext */
 @font-face {

@@ -1,29 +1,57 @@
-import fs from 'fs';
-import path from 'path';
+import fs from 'node:fs';
+import path from 'node:path';
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 import { DATA } from '@/src/constants';
-import BlogPost from '@/src/views/BlogPost';
+import BlogPostView from '@/src/views/BlogPost';
+
+export const dynamicParams = false;
+
+interface PageProps {
+    params: Promise<{ slug: string }>;
+}
 
 export function generateStaticParams() {
     return DATA.blog.map((post) => ({ slug: post.slug }));
 }
 
-export default async function BlogSlugPage({ params }: { params: Promise<{ slug: string }> }) {
+export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
     const { slug } = await params;
     const decodedSlug = decodeURIComponent(slug);
+    const post = DATA.blog.find((candidate) => candidate.slug === decodedSlug);
 
-    // Validate slug is a known post to prevent path traversal
-    const post = DATA.blog.find(p => p.slug === decodedSlug);
-    if (!post) {
-        return <BlogPost slug={decodedSlug} />;
+    if (!DATA.config.showBlogPage || !post) {
+        return { robots: { index: false, follow: false } };
     }
 
-    const filePath = path.join(process.cwd(), 'public', 'assets', 'posts', `${decodedSlug}.md`);
-    let content = '';
-    if (fs.existsSync(filePath)) {
-        content = fs.readFileSync(filePath, 'utf8');
-    } else {
-        console.warn(`Markdown file not found: ${filePath}`);
+    return {
+        title: post.title,
+        description: post.summary,
+        alternates: { canonical: `/blog/${encodeURIComponent(post.slug)}` },
+        openGraph: {
+            type: 'article',
+            title: post.title,
+            description: post.summary,
+            url: `/blog/${encodeURIComponent(post.slug)}`,
+        },
+    };
+}
+
+export default async function BlogSlugPage({ params }: PageProps) {
+    if (!DATA.config.showBlogPage) notFound();
+
+    const { slug } = await params;
+    const decodedSlug = decodeURIComponent(slug);
+    const post = DATA.blog.find((candidate) => candidate.slug === decodedSlug);
+    if (!post) notFound();
+
+    const extension = post.format === 'html' ? 'html' : 'md';
+    const filePath = path.join(process.cwd(), 'public', 'assets', 'posts', `${post.slug}.${extension}`);
+
+    if (!fs.existsSync(filePath)) {
+        throw new Error(`Blog asset not found: ${filePath}`);
     }
 
-    return <BlogPost initialContent={content} slug={decodedSlug} />;
+    const content = extension === 'md' ? fs.readFileSync(filePath, 'utf8') : undefined;
+    return <BlogPostView post={post} content={content} />;
 }

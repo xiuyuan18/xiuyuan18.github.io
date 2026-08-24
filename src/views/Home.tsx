@@ -1,10 +1,20 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { DATA } from '@/src/constants';
 import { Mail, MapPin, Link as LinkIcon, ChevronRight, FileText, Award, GraduationCap } from 'lucide-react';
 import MediaTeaser from '../components/MediaTeaser';
 import { isAuthorMe, resolvePublicationTeaser } from '@/src/lib/utils';
 import { getIconComponent } from '@/src/components/icons';
+
+function renderNewsContent(content: string) {
+  return content.split(/(\*\*[^*]+\*\*)/g).filter(Boolean).map((part, index) => {
+    if (part.startsWith('**') && part.endsWith('**')) {
+      return <strong key={index}>{part.slice(2, -2)}</strong>;
+    }
+    return <React.Fragment key={index}>{part}</React.Fragment>;
+  });
+}
 
 const Home: React.FC = () => {
 
@@ -13,9 +23,13 @@ const Home: React.FC = () => {
       {/* Profile Section */}
       <section className="flex flex-col md:flex-row gap-8 md:gap-12 items-start">
         <div className="w-32 h-32 md:w-48 md:h-48 shrink-0 relative">
-          <img
+          <Image
             src={DATA.profile.image}
             alt={DATA.profile.name}
+            width={512}
+            height={512}
+            sizes="(min-width: 768px) 12rem, 8rem"
+            priority
             className="w-full h-full object-cover rounded-full shadow-md border-4 border-white ring-1 ring-academic-100"
           />
         </div>
@@ -109,7 +123,7 @@ const Home: React.FC = () => {
               <span className="text-sm font-bold text-academic-400 dark:text-academic-500 font-mono whitespace-nowrap w-24 shrink-0">
                 {item.date}
               </span>
-              <div className="text-academic-700 dark:text-academic-300" dangerouslySetInnerHTML={{ __html: item.content.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') }} />
+              <div className="text-academic-700 dark:text-academic-300">{renderNewsContent(item.content)}</div>
             </div>
           ))}
         </div>

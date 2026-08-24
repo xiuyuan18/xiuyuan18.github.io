@@ -1,5 +1,6 @@
 'use client';
 import React, { useEffect, useRef, useState } from 'react';
+import Image from 'next/image';
 
 interface Props {
   videoSrc?: string;
@@ -28,6 +29,7 @@ function supportsVideoType(ext: string) {
 
 const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, ariaLabel }) => {
   const [status, setStatus] = useState<'idle' | 'loading' | 'video' | 'image' | 'placeholder'>('idle');
+  const [prefersReducedMotion, setPrefersReducedMotion] = useState(false);
   const containerRef = useRef<HTMLDivElement | null>(null);
   const videoRef = useRef<HTMLVideoElement | null>(null);
 
@@ -37,6 +39,7 @@ const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, aria
     if (!el) return;
     const doSelect = () => {
       setStatus('loading');
+      setPrefersReducedMotion(window.matchMedia('(prefers-reduced-motion: reduce)').matches);
       const ext = getExt(videoSrc);
       const canPlay = videoSrc && supportsVideoType(ext);
       if (canPlay) {
@@ -67,6 +70,7 @@ const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, aria
 
   useEffect(() => {
     if (status !== 'video') return;
+    if (prefersReducedMotion) return;
     const v = videoRef.current;
     if (!v) return;
     const playPromise = v.play();
@@ -76,10 +80,10 @@ const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, aria
         else setStatus('placeholder');
       });
     }
-  }, [status, imageSrc]);
+  }, [status, imageSrc, prefersReducedMotion]);
 
   return (
-    <div ref={containerRef} className={className} aria-label={ariaLabel || alt} suppressHydrationWarning>
+    <div ref={containerRef} className={`relative ${className ?? ''}`} aria-label={ariaLabel || alt} suppressHydrationWarning>
       {status === 'idle' || status === 'loading' ? (
         <div className="w-full h-full bg-academic-100 dark:bg-academic-700 animate-pulse rounded-lg border border-academic-100 dark:border-academic-700" />
       ) : status === 'video' && videoSrc ? (
@@ -89,7 +93,8 @@ const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, aria
           muted
           loop
           playsInline
-          autoPlay
+          autoPlay={!prefersReducedMotion}
+          controls={prefersReducedMotion}
           preload="metadata"
           poster={imageSrc}
           aria-label={alt}
@@ -100,10 +105,11 @@ const MediaTeaser: React.FC<Props> = ({ videoSrc, imageSrc, alt, className, aria
           }}
         />
       ) : status === 'image' && imageSrc ? (
-        <img
+        <Image
           src={imageSrc}
           alt={alt}
-          loading="lazy"
+          fill
+          sizes="(min-width: 768px) 12rem, 100vw"
           className="w-full h-full object-cover rounded-lg border border-academic-100 dark:border-academic-700 shadow-sm"
           onError={() => setStatus('placeholder')}
         />

@@ -7,26 +7,20 @@ import { DATA } from '@/src/constants';
 
 const Navbar: React.FC = () => {
   const [isOpen, setIsOpen] = useState(false);
-  const [dark, setDark] = useState(false);
   const pathname = usePathname();
 
   useEffect(() => {
-    const stored = localStorage.getItem('theme');
-    if (stored === 'dark' || (!stored && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark');
-      setDark(true);
-    }
-  }, []);
+    if (!isOpen) return;
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') setIsOpen(false);
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => document.removeEventListener('keydown', handleKeyDown);
+  }, [isOpen]);
 
   const toggleDark = () => {
-    if (dark) {
-      document.documentElement.classList.remove('dark');
-      localStorage.setItem('theme', 'light');
-    } else {
-      document.documentElement.classList.add('dark');
-      localStorage.setItem('theme', 'dark');
-    }
-    setDark(!dark);
+    const isDark = document.documentElement.classList.toggle('dark');
+    localStorage.setItem('theme', isDark ? 'dark' : 'light');
   };
 
   const navLinks = [
@@ -38,7 +32,7 @@ const Navbar: React.FC = () => {
 
   const visibleLinks = navLinks.filter(link => link.show);
 
-  const isActive = (path: string) => pathname === path;
+  const isActive = (path: string) => path === '/' ? pathname === '/' : pathname === path || pathname.startsWith(`${path}/`);
 
   return (
     <nav className="sticky top-0 z-50 bg-white/80 dark:bg-academic-800/80 backdrop-blur-md border-b border-academic-100 dark:border-academic-700" aria-label="Main navigation">
@@ -58,6 +52,7 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 href={link.path}
+                aria-current={isActive(link.path) ? 'page' : undefined}
                 className={`inline-flex items-center px-1 pt-1 text-sm font-medium transition-colors duration-200 ${isActive(link.path)
                   ? 'text-academic-accent border-b-2 border-academic-accent'
                   : 'text-academic-600 dark:text-academic-400 hover:text-academic-900 dark:hover:text-academic-100 hover:border-b-2 hover:border-academic-300 dark:hover:border-academic-600'
@@ -68,10 +63,11 @@ const Navbar: React.FC = () => {
             ))}
             <button
               onClick={toggleDark}
-              aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label="Toggle color theme"
               className="p-2 rounded-md text-academic-500 dark:text-academic-400 hover:text-academic-900 dark:hover:text-academic-100 hover:bg-academic-50 dark:hover:bg-academic-700 transition-colors"
             >
-              {dark ? <Sun size={18} /> : <Moon size={18} />}
+              <Sun size={18} className="hidden dark:block" aria-hidden="true" />
+              <Moon size={18} className="block dark:hidden" aria-hidden="true" />
             </button>
           </div>
 
@@ -79,17 +75,18 @@ const Navbar: React.FC = () => {
           <div className="flex items-center md:hidden">
             <button
               onClick={toggleDark}
-              aria-label={dark ? 'Switch to light mode' : 'Switch to dark mode'}
+              aria-label="Toggle color theme"
               className="p-2 rounded-md text-academic-500 dark:text-academic-400 hover:text-academic-900 dark:hover:text-academic-100 hover:bg-academic-50 dark:hover:bg-academic-700 transition-colors mr-1"
             >
-              {dark ? <Sun size={18} /> : <Moon size={18} />}
+              <Sun size={18} className="hidden dark:block" aria-hidden="true" />
+              <Moon size={18} className="block dark:hidden" aria-hidden="true" />
             </button>
             <button
               onClick={() => setIsOpen(!isOpen)}
               aria-expanded={isOpen}
               aria-controls="mobile-menu"
               aria-label="Toggle navigation menu"
-              className="inline-flex items-center justify-center p-2 rounded-md text-academic-500 dark:text-academic-400 hover:text-academic-900 dark:hover:text-academic-100 hover:bg-academic-50 dark:hover:bg-academic-700 focus:outline-none"
+              className="inline-flex items-center justify-center p-2 rounded-md text-academic-500 dark:text-academic-400 hover:text-academic-900 dark:hover:text-academic-100 hover:bg-academic-50 dark:hover:bg-academic-700"
             >
               {isOpen ? <X size={24} aria-hidden="true" /> : <Menu size={24} aria-hidden="true" />}
             </button>
@@ -105,6 +102,7 @@ const Navbar: React.FC = () => {
               <Link
                 key={link.name}
                 href={link.path}
+                aria-current={isActive(link.path) ? 'page' : undefined}
                 onClick={() => setIsOpen(false)}
                 className={`block pl-3 pr-4 py-2 border-l-4 text-base font-medium ${isActive(link.path)
                   ? 'bg-academic-50 dark:bg-academic-700 border-academic-accent text-academic-accent'
