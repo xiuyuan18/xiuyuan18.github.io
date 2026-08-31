@@ -54,6 +54,7 @@ export const DATA: SiteData = {
   ],
   teaching: [],
   awards: [
+    { id: "a5", title: "Best Project Award for UG Summer Research Internship", awarder: "Faculty of Engineering", date: "2026" },
     { id: "a1", title: "Silver Award for Outstanding Academic Performance", awarder: "Department", date: "2025, 2026" },
     { id: "a2", title: "Dean's List", awarder: "Faculty of Engineering", date: "2024, 2025" },
     { id: "a3", title: "ELITE Stream Scholarship", awarder: "Faculty of Engineering", date: "2024, 2025" },
