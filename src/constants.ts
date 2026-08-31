@@ -20,9 +20,8 @@ export const DATA: SiteData = {
     location: "Hong Kong, China",
     image: "/assets/self_photo.webp", // Replace with your photo
     cv: "/assets/cv.pdf", // Place your cv.pdf in the assets folder
-    shortBio: "I am interested in machine learning and computer vision, especially high-quality scene reconstruction and 3D-aware visual content generation.",
-    longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). My academic interests include computer vision and deep learning, with a particular focus on the intersection of 3D reconstruction and visual content generation.
-    `,
+    shortBio: "I am interested in spatial intelligence and 3D/4D world representations, particularly in learning structured representations that unify geometry, appearance, and dynamics from visual observations, and connecting them with multimodal reasoning.",
+    longBio: `I am an undergraduate student in the ELITE Stream of the Artificial Intelligence: Systems and Technologies program at The Chinese University of Hong Kong (CUHK). I am interested in spatial intelligence, 3D/4D vision, and representation learning. In particular, I am interested in how structured representations of the visual world can emerge from observations and capture geometry, appearance, and dynamics, and how such representations can bridge visual understanding with language-based reasoning and planning.`,
     socials: [
       { label: "Google Scholar", url: "https://scholar.google.com/citations?user=4H2KSRAAAAAJ&hl=en", icon: "scholar" },
       { label: "GitHub", url: "https://github.com/xiuyuan18", icon: "github" },
